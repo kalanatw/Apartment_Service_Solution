@@ -1,25 +1,31 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import Form from './components/form01';
+import TopBar from './components/topbar';
+import Sidebar from './components/sidebar';
 
-function App() {
+class App extends Component {
+  render () {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> a save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <div>
+        <TopBar/>
+      </div>
+      <div className ="App">
+       <Sidebar />
+      </div>
+      <div className ="inline">
+      <div className='bodycss'>
+        <h2>Add Appoinment</h2><br/>
+        <div className='formbody'>
+          < Form/>
+        </div>
+      </div>
+      </div>
+    </main>
   );
+  }
 }
 
 export default App;
+
