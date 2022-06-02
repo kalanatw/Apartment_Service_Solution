@@ -22,6 +22,6 @@ const utilityBillSchema = new mongoose.Schema({
   
 })
 
-const UtilityBill = mongoose.model("UtilityBill",utilityBillSchema);
+const UtilityBill = mongoose.model("UtilityBills",utilityBillSchema);
 
 module.exports=UtilityBill;

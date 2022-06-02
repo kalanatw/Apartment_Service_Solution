@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import AddAppoimentForm from './components/form01';
+import Complain from './components/Com';
 import TopBar from './components/topbar';
 import Sidebar from './components/sidebar';
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 class App extends Component {
   render () {
@@ -16,13 +18,26 @@ class App extends Component {
       </div>
       <div className ="inline">
       <div className='bodycss'>
-        <h2>Add Appoinment</h2><br/>
+        
         <div className='formbody'>
-          <AddAppoimentForm/>
+          <BrowserRouter>
+          <Routes>
+        <Route
+          path="/Appointment"
+          element={<AddAppoimentForm></AddAppoimentForm>}
+        />
+        <Route path="/Complaint%20Management" element={<Complain></Complain>} />
+        
+      </Routes>
+          </BrowserRouter>
+         
         </div>
       </div>
       </div>
+      
     </main>
+
+    
   );
   }
 }

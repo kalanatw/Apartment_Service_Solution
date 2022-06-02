@@ -21,6 +21,9 @@ class AddAppoimentForm extends React.Component {
 
   render() {
     return (
+      <>
+      <h2>Add Appoinment</h2><br/>
+
       <form onSubmit={this.handleSubmit}>
         
         <label className='lablecss'>
@@ -64,6 +67,7 @@ class AddAppoimentForm extends React.Component {
 
         
       </form>
+      </>
     );
   }
 }
