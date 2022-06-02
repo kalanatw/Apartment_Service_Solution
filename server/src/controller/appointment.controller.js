@@ -2,7 +2,7 @@ const Appointment = require("../models/appointment")
 
 const createAppointment = async (req,res)=>{
     const appoinment = new Appointment({
-        ...req.body
+    
     })
 
     try {

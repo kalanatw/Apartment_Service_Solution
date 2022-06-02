@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Form from './components/form01';
+import AddAppoimentForm from './components/form01';
 import TopBar from './components/topbar';
 import Sidebar from './components/sidebar';
 
@@ -18,7 +18,7 @@ class App extends Component {
       <div className='bodycss'>
         <h2>Add Appoinment</h2><br/>
         <div className='formbody'>
-          < Form/>
+          <AddAppoimentForm/>
         </div>
       </div>
       </div>

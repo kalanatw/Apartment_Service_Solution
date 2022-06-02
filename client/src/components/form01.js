@@ -1,7 +1,7 @@
 import React from 'react';
 import './form01.css'; 
 
-class NameForm extends React.Component {
+class AddAppoimentForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {value: ''};
@@ -68,4 +68,4 @@ class NameForm extends React.Component {
   }
 }
 
-export default NameForm;
+export default AddAppoimentForm;
