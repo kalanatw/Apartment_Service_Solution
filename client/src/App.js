@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import AddAppoimentForm from './components/appoinment';
+import AddAppoinment from './Pages/Appoinment/AddAppoinment';
 import TopBar from './components/topbar/topbar';
 import Sidebar from './components/sidebar/sidebar';
 import { Route, Routes, BrowserRouter } from "react-router-dom";
@@ -23,7 +23,7 @@ class App extends Component {
           <Routes>
         <Route
           path="/Appointment"
-          element={<AddAppoimentForm></AddAppoimentForm>}
+          element={<AddAppoinment></AddAppoinment>}
         />
         
       </Routes>
