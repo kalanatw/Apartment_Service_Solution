@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import AddAppoimentForm from './components/form01';
+import AddAppoimentForm from './components/appoinment';
 import Complain from './components/Com';
-import TopBar from './components/topbar';
-import Sidebar from './components/sidebar';
+import TopBar from './components/topbar/topbar';
+import Sidebar from './components/sidebar/sidebar';
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 class App extends Component {

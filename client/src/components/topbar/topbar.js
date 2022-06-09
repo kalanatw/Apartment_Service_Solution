@@ -1,9 +1,9 @@
-import profileimage from "./images/ci_settings-filled.png";
-import settingimage from "./images/Group.png";
-import logoutimage from "./images/bx_log-out.png";
-import homeimage from "./images/Vector.png";
+import profileimage from "../images/ci_settings-filled.png";
+import settingimage from "../images/Group.png";
+import logoutimage from "../images/bx_log-out.png";
+import homeimage from "../images/Vector.png";
 import React from 'react';
-import '../App.css';
+import '../../App.css';
 import './topbar.css'; 
 
 function TopBar() {
