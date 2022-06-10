@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import AddAppoimentForm from './components/form01';
-import Complain from './components/Com';
-import TopBar from './components/topbar';
-import Sidebar from './components/sidebar';
+import AddAppoinment from './Pages/Appoinment/AddAppoinment';
+import TopBar from './components/topbar/topbar';
+import Sidebar from './components/sidebar/sidebar';
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 class App extends Component {
@@ -24,9 +23,8 @@ class App extends Component {
           <Routes>
         <Route
           path="/Appointment"
-          element={<AddAppoimentForm></AddAppoimentForm>}
+          element={<AddAppoinment></AddAppoinment>}
         />
-        <Route path="/Complaint%20Management" element={<Complain></Complain>} />
         
       </Routes>
           </BrowserRouter>

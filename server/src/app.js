@@ -1,14 +1,18 @@
 const express = require("express");
 require("../db/mongoose")
+const cors = require("cors")
 
 const {appointmentRouter} = require("./router/appointment.routes")
 const {serviceMemberRouter}=require("./router/servicemember.routes")
 const { utilityBillRouter } = require("./router/utilitybill.routes");
+
+const app = express();
+app.use(cors({origin:"*"}))
 const bodyParser = require("body-parser");
 
 
 
-const app = express();
+
 
 app.use(bodyParser.json({limit:"50mb"}))
 app.use(bodyParser.urlencoded({
