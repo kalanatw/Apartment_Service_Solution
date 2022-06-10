@@ -20,6 +20,8 @@ const getAllUtilityBill= async (req,res)=>{
     } catch (error) {
        console.log(error)
     }
+
+
 }
 
 const getUtilityBill = async (req,res)=>{
