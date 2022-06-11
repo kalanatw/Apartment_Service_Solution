@@ -14,13 +14,10 @@ function AddAppoinment(){
 
   const submitAppoinment = async (event) =>{
     event.preventDefault();
-    console.log({name,numOfGuest,NIC,date,mobileNo,expDate})
-    const res = await addAppoinment({
-      "appointmentStatus":"Active",
-      "appointmentName":"Jimmyyyyyyyyyyy",
-      "numOfGuest":9
-  })
-    alert(res)
+    // console.log({appointmentName:name,numOfGuest,appointmentNIC:NIC,appointmentDate:date,mobileNumber:mobileNo,expireDate:expDate})
+    const res = await addAppoinment({appointmentName:name,numOfGuest,appointmentNIC:NIC,appointmentDate:date,mobileNumber:mobileNo,expireDate:expDate})
+    console.log(res)
+    
   }
     return(
 <>
@@ -51,7 +48,7 @@ function AddAppoinment(){
 
 
   <Form.Group className="mb-3" controlId="formBasicEmail">
-    <Form.Label className="lablecss">Date</Form.Label>
+    <Form.Label className="lablecss">Start Date</Form.Label>
     <Form.Control type="date" placeholder="Date of visiting" className='inputcss' onChange={(e)=>setdate(e.target.value)}/>
   </Form.Group>
   <br/><br/>
@@ -63,13 +60,13 @@ function AddAppoinment(){
   <br/><br/>
 
   <Form.Group className="mb-3" controlId="formBasicPassword">
-    <Form.Label className="lablecss">Expiration Date</Form.Label>
+    <Form.Label className="lablecss">End Date</Form.Label>
     <Form.Control type="date" placeholder="Deppature date" className='inputcss' onChange={(e)=>setexpDate(e.target.value)}/>
   </Form.Group>
   <br/><br/><br/>
 
   
-  <Button variant="primary" type="submit" className='submitcss'>
+  <Button variant="primary" type="submit" className='submitcss' >
     Submit
   </Button>
 </Form>

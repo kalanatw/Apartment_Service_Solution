@@ -1,11 +1,12 @@
 const mongoose = require("mongoose")
 
 const appoinmetSchema = new mongoose.Schema({
-    appointmentStatus :{
-        type:String,
-    },
+    
     appointmentName:{
         type:String,
+    },
+    numOfGuest :{
+        type:Number,
     },
     appointmentNIC:{
         type:String,
@@ -13,9 +14,7 @@ const appoinmetSchema = new mongoose.Schema({
     appointmentDate :{
         type:Date,
     },
-    noOfDatesStaying:{
-        type:Number,
-    },
+
     mobileNumber:{
         type:Number,
     },
@@ -25,9 +24,10 @@ const appoinmetSchema = new mongoose.Schema({
     startDate :{
         type:Date,
     },
-    numOfGuest :{
-        type:Number,
+    appointmentStatus :{
+        type:String,
     },
+   
 })
 
 const Appointment = mongoose.model("Appointment",appoinmetSchema);

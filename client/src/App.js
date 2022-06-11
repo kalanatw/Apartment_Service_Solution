@@ -3,6 +3,8 @@ import './App.css';
 import AddAppoinment from './Pages/Appoinment/AddAppoinment';
 import TopBar from './components/topbar/topbar';
 import Sidebar from './components/sidebar/sidebar';
+import SuccessOTP from './Pages/Appoinment/SuccessAppoinment';
+
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 class App extends Component {
@@ -25,7 +27,10 @@ class App extends Component {
           path="/Appointment"
           element={<AddAppoinment></AddAppoinment>}
         />
-        
+        <Route
+          path="/otp"
+          element={<SuccessOTP></SuccessOTP>}
+        />
       </Routes>
           </BrowserRouter>
          
