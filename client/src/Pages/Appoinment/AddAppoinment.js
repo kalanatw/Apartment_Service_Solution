@@ -3,6 +3,7 @@ import {Form,Button} from "react-bootstrap";
 import {Routes, Route, useNavigate} from 'react-router-dom';
 import './appoinment.css'; 
 import {addAppoinment} from "../../utils/appoinment"
+import '../../App.css'
 import {SuccessAppoinment} from "./SuccessAppoinment"
 // import {useForm} from "react-hook-form";
 // import {yupResolver} from '@hookform/resolvers/yup';
@@ -98,11 +99,13 @@ function AddAppoinment(){
 
     return(
 <>
+<div className="inline">
 
-
+<h2>Add Appoinment</h2><br/>
+<div className="bodycss">
+<div className="formbody">
 <Form  onSubmit={submitAppoinment}>
 
-<h2>Add Appoinment</h2>
 <br/>
 
   <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -155,7 +158,11 @@ function AddAppoinment(){
   {/* <Link to="./SuccessAppoinment"></Link> */}
     Submit
   </Button>
+
 </Form>
+</div>
+</div>
+</div>
 </>
     );
 }
