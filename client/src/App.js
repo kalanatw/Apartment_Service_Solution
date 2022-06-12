@@ -3,6 +3,9 @@ import './App.css';
 import AddAppoinment from './Pages/Appoinment/AddAppoinment';
 import TopBar from './components/topbar/topbar';
 import Sidebar from './components/sidebar/sidebar';
+import BillAdding from './Pages/UtilityBill/BillAdding/formtest2'
+import WaterBill from './Pages/UtilityBill/WaterBill/fullwater'
+import Electricity from './Pages/UtilityBill/ElectricityBill/fulllec'
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 class App extends Component {
@@ -25,7 +28,22 @@ class App extends Component {
           path="/Appointment"
           element={<AddAppoinment></AddAppoinment>}
         />
-        
+
+        <Route
+          path="/Electricity"
+          element={<Electricity></Electricity>}
+        />
+
+        <Route
+          path="/WaterBill"
+          element={<WaterBill></WaterBill>}
+        />
+
+
+      <Route
+          path="/BillAdding"
+          element={<BillAdding></BillAdding>}
+        />
       </Routes>
           </BrowserRouter>
          
