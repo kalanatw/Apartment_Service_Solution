@@ -36,6 +36,16 @@ class App extends Component {
           path="/AppoinmentTable"
           element={<AppoinmentTable></AppoinmentTable>}
         />
+         <Route
+                    path="/service"
+                    element={<Table></Table>}
+                  />
+
+                
+                <Route
+                  path="/Form"
+                  element={<NameForm></NameForm>}
+                />
       </Routes>
           </BrowserRouter>
          
