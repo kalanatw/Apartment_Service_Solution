@@ -51,7 +51,7 @@ export const sidebardata= [
     {
         title: "Complaint Management",
         icon: <ReportIcon />,
-        link: "/Complaint Management",
+        link: "/Complaints",
     },
 
     {

@@ -5,7 +5,7 @@ import './sidebar.css';
 
 function Sidebar() {
   return (
-     // <div className="b">
+
     <div className="Sidebar">
         <ul className='sidebarlist'>
         {sidebardata.map((val, key) => {
@@ -15,7 +15,7 @@ function Sidebar() {
                 className="row"
                 
                 id={window.location.pathname == val.link ? "active" : ""}
-                //id={window.location.pathname == val.}
+                
                 onClick={() => {
                     window.location.pathname = val.link;
                 }}

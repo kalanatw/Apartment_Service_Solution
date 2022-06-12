@@ -4,9 +4,11 @@ import AddAppoimentForm from './components/appoinment';
 import TopBar from './components/topbar/topbar';
 import Sidebar from './components/sidebar/sidebar';
 import { Route, Routes, BrowserRouter } from "react-router-dom";
+import ComplaintsOne from './ComplaintsPages/pageOne';
+import ComplaintsTwo from './ComplaintsPages/pageTwo';
+import Updatepage from './ComplaintsPages/Updatepage';
 
-class App extends Component {
-  render () {
+function App (){
   return (
     <main>
       <div>
@@ -25,9 +27,28 @@ class App extends Component {
           path="/Appointment"
           element={<AddAppoimentForm></AddAppoimentForm>}
         />
+         <Route
+          path="/Complaints"
+          element={<ComplaintsOne></ComplaintsOne>}
+        />
+        <Route
+          path="/ComplaintsPgTwo"
+          element={<ComplaintsTwo></ComplaintsTwo>}
+        />
+      <Route
+          path="/updatepage"
+          element={<Updatepage />}
+        />
+
         
       </Routes>
           </BrowserRouter>
+
+
+        
+       
+      
+
          
         </div>
       </div>
@@ -37,7 +58,6 @@ class App extends Component {
 
     
   );
-  }
 }
 
 export default App;
