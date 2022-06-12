@@ -33,7 +33,7 @@ export const sidebardata= [
     {
         title: "Service Management",
         icon: <EmojiPeopleIcon />,
-        link: "/Service Management",
+        link: "/Service",
     },
 
     {
