@@ -1,5 +1,6 @@
 import {React,useState} from "react";
 import {Form,Button} from "react-bootstrap";
+import { Link } from "react-router-dom";
 import './appoinment.css'; 
 
 function GenerateOTP(){
@@ -18,6 +19,7 @@ function GenerateOTP(){
 </div>
 <br/>
 <Button variant="primary"  className='submitcss'>
+   
     Reset OTP
   </Button>
        

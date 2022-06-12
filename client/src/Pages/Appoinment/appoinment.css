@@ -22,7 +22,7 @@
     color:black;
     border-radius:24px;
     transition:0.25px;
-    margin-left:255px;
+    margin-left:355px;
     
     
     
@@ -46,4 +46,8 @@ backdrop-filter: blur(40px);
 /* Note: backdrop-filter has minimal browser support */
 
 border-radius: 15px;
+}
+
+p{
+    color: red;
 }

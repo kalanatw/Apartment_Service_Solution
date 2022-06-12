@@ -4,6 +4,7 @@ import AddAppoinment from './Pages/Appoinment/AddAppoinment';
 import TopBar from './components/topbar/topbar';
 import Sidebar from './components/sidebar/sidebar';
 import SuccessOTP from './Pages/Appoinment/SuccessAppoinment';
+import AppoinmentTable from './Pages/Appoinment/AppoinmentTable';
 
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 
@@ -30,6 +31,10 @@ class App extends Component {
         <Route
           path="/otp"
           element={<SuccessOTP></SuccessOTP>}
+        />
+         <Route
+          path="/AppoinmentTable"
+          element={<AppoinmentTable></AppoinmentTable>}
         />
       </Routes>
           </BrowserRouter>
