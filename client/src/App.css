@@ -1,9 +1,9 @@
 
 .bodycss{
   background-position:center;
-  background-size:cover;
-  margin-top:35px;
-  margin-left:10px;
+  /*background-size:cover;*/
+  /*margin-top:0px;*/
+  /*margin-left:10px;*/
   font-family:calibri;
   }  
 
@@ -22,8 +22,8 @@
 
 .inline{
   position: absolute;
-  width: 253px;
-  height: 42px;
-  left: 350px;
-  top: 80px;
+  /*width: 253px;
+  height: 30px;
+  left: 350px;*/
+  
   }
