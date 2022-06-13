@@ -7,6 +7,7 @@ import SuccessOTP from './Pages/Appoinment/SuccessAppoinment';
 import AppoinmentTable from './Pages/Appoinment/AppoinmentTable';
 
 import { Route, Routes, BrowserRouter } from "react-router-dom";
+import Atable from './Pages/AdminRegistration/adminregistration';
 
 class App extends Component {
   render () {
@@ -36,6 +37,12 @@ class App extends Component {
           path="/AppoinmentTable"
           element={<AppoinmentTable></AppoinmentTable>}
         />
+
+        <Route
+          path="/AdminManagement"
+          element={<Atable></Atable>}
+        />
+
       </Routes>
           </BrowserRouter>
          

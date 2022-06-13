@@ -31,27 +31,33 @@ export const sidebardata= [
     },
 
     {
-        title: "Service Management",
+        title: "ServiceManagement",
         icon: <EmojiPeopleIcon />,
-        link: "/Service Management",
+        link: "/ServiceManagement",
     },
 
     {
-        title: "Resident Management",
+        title: "AdminManagement",
         icon: <FamilyRestroomIcon />,
-        link: "/Resident Management",
+        link: "/AdminManagement",
     },
 
     {
-        title: "Security Management",
+        title: "ResidentManagement",
+        icon: <FamilyRestroomIcon />,
+        link: "/ResidentManagement",
+    },
+
+    {
+        title: "SecurityManagement",
         icon: <HomeIcon />,
-        link: "/Security Management",
+        link: "/SecurityManagement",
     },
 
     {
-        title: "Complaint Management",
+        title: "ComplaintManagement",
         icon: <ReportIcon />,
-        link: "/Complaint Management",
+        link: "/ComplaintManagement",
     },
 
     {
