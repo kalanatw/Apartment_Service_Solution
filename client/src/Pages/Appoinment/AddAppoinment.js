@@ -24,11 +24,12 @@ function AddAppoinment(){
   }
     return(
 <>
-
-<Form onSubmit={submitAppoinment}>
+<div className ="inline">
 <h2>Add Appoinment</h2>
 <br/>
-
+<div className='bodycss'>
+<div className='formbody'>
+<Form onSubmit={submitAppoinment}>
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label className="lablecss">Name</Form.Label>
     <Form.Control type="text" placeholder="Name of the guest" className='inputcss' onChange={(e)=>setName(e.target.value)}/>
@@ -73,6 +74,9 @@ function AddAppoinment(){
     Submit
   </Button>
 </Form>
+</div>
+</div>
+</div>
 </>
     );
 }
