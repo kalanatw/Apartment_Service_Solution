@@ -1,24 +1,25 @@
 .navBox
 {
-  display: flex;
-  align-items: center;
+  /*display: flex;*/
+  /*align-items: center;*/
   justify-content: right;
   width: 100%;
-  border-bottom:2px solid rgba(0,0,0);
-  border-top:2px solid rgba(0,0,0);
-  
- 
+  border-bottom:2px solid rgba(0,0,0,255);
+  border-top:2px solid rgba(0,0,0,255);
+  background-color: white;
+  position: fixed;
+  z-index: 1
 }
 
 
-.navMenu > a
-{
-  padding: 5px 10px;
-  margin-right: 5px; 
-  display: inline-block;
-  text-decoration: none;
-  
-}
+/*}.navMenu > a
+{*/
+  /*padding: 5px 10px;*/
+  /*margin-right: 5px; */
+  /*display: inline-block;*/
+  /*text-decoration: none;
+}*/
+
 
 .navMenu > a:hover
 {
