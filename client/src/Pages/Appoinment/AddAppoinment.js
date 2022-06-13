@@ -5,28 +5,9 @@ import './appoinment.css';
 import {addAppoinment} from "../../utils/appoinment"
 import '../../App.css'
 import {SuccessAppoinment} from "./SuccessAppoinment"
-// import {useForm} from "react-hook-form";
-// import {yupResolver} from '@hookform/resolvers/yup';
-// import * as yup from 'yup';
-
-// const Schema =yup.object().shape({
-//   name:yup.string().required(),
-//   noOfGuests:yup.number().positive(),
-//   nic:yup.number().positive(),
-//   dateV:yup.date().required(),
-//   mobile:yup.number().required(),
-//   dateE:yup.date().required()
-
-// });
 
 
 function AddAppoinment(){
-  // const{register,handleSubmit,errors}=useForm(
-  //   {
-  //     resolver:yupResolver(Schema),
-  //   }
-  // );
-
 
   const [name,setName]= useState("")
   const [numOfGuest,setnumOfGuest]= useState(0)
@@ -45,6 +26,7 @@ function AddAppoinment(){
     setFormError(validate({appointmentName:name,numOfGuest,appointmentNIC:NIC,appointmentDate:date,mobileNumber:mobileNo,expireDate:expDate}))
     
     setIsSubmit(true)
+    alert("Submitted succesfully..");
     
     
     
