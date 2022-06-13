@@ -6,11 +6,11 @@ import axios from "axios"
 
  function AppoinmentTable(){
 
-    const [data,setData]=useState(null)
+    const [data,setData]=useState([])
 
      useEffect(()=>{
          console.log("called");
-getAppoinmentDetails();
+            getAppoinmentDetails();
 
      },[])
 
@@ -18,7 +18,7 @@ const getAppoinmentDetails = async () => {
   await axios
     .get('http://localhost:4000/appointment/')
     .then((res) => {
-      console.log(res)
+      console.log(res.data)
       setData(res.data)
     })
     .catch((err) => {
@@ -47,8 +47,9 @@ const getAppoinmentDetails = async () => {
     </thead>
     <tbody>
     {
-  data != null ? (
+  data.length > 0 ? (
     data.map((item,index) => {
+        console.log(item)
       return (
         <>
         <tr>
