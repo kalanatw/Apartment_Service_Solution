@@ -1,0 +1,30 @@
+.lablecss{
+    float:left;
+    width:250px;
+    text-align:left;
+    }
+
+.inputcss{
+    border-radius: 5px;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 15px; 
+    width: 200px;
+    height: 0px; 
+}
+
+.submitcss{
+    border:0;
+    background: #3FAB98;
+    text-align: center;
+    border:3px solod #3FAB98;
+    width: 120px;
+    height: 35px;
+    color:black;
+    border-radius:24px;
+    transition:0.25px;
+    margin-left:255px;
+    
+    
+    
+  }
+
