@@ -4,6 +4,8 @@
     height: 100%;
     width: 300px;
     padding-top: 0px;
+    position: fixed;
+    top:50px;
 }
 
 .sidebarlist{
