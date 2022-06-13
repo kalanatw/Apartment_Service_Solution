@@ -1,0 +1,36 @@
+.boxbill{
+    background: #3FAB98;
+    border:3px solod #3FAB98;
+    width:150px;
+    height: 30px;
+    border-radius:24px;
+    transition:0.25px;
+    margin:30px;
+    display: flex;
+    justify-content: center;
+    
+  }
+  
+.navMenu > a
+  {
+    padding: 5px 10px;
+    margin-right: 5px; 
+    text-decoration: none;
+    color: black;
+    
+    
+  }
+.navMenu > a:hover
+{
+  transition: ease-in-out 300ms;
+  background:#8edfd0;
+}
+
+
+
+  .tablecss{
+    
+    margin-left: 200px;
+    
+  }
+    
