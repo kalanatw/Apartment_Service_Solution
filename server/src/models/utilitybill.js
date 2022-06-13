@@ -8,16 +8,16 @@ const utilityBillSchema = new mongoose.Schema({
         type:String,
     },
     EnterBillAmount:{
-        type:String,
+        type:Number,
     },
     EnterBillMonth :{
-        type:String,
+        type:Date,
     },
     EnterBillType:{
         type:String,
     },
     EnterBillID:{
-        type:String,
+        type:Number,
     },
   
 })
