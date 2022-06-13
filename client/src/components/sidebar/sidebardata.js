@@ -57,7 +57,7 @@ export const sidebardata= [
     {
         title: "Bill Management",
         icon: <AttachMoneyIcon />,
-        link: "/Bill Management",
+        link: "/WaterBill",
     },
 
     {
