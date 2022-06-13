@@ -8,7 +8,7 @@ import ReportIcon from '@mui/icons-material/Report';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import SettingsIcon from '@mui/icons-material/Settings';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
-import profileLogo from "./images/Ellipse_2.png";
+import profileLogo from "../images/Ellipse_2.png";
 
 export const sidebardata= [
 
@@ -33,7 +33,7 @@ export const sidebardata= [
     {
         title: "Service Management",
         icon: <EmojiPeopleIcon />,
-        link: "/Service Management",
+        link: "/Service",
     },
 
     {

@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import Form from './components/form01';
-import TopBar from './components/topbar';
-import Sidebar from './components/sidebar';
+import AddAppoinment from './Pages/Appoinment/AddAppoinment';
+import TopBar from './components/topbar/topbar';
+import Sidebar from './components/sidebar/sidebar';
+import SuccessOTP from './Pages/Appoinment/SuccessAppoinment';
+import AppoinmentTable from './Pages/Appoinment/AppoinmentTable';
+
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 class App extends Component {
   render () {
@@ -16,13 +20,42 @@ class App extends Component {
       </div>
       <div className ="inline">
       <div className='bodycss'>
-        <h2>Add Appoinment</h2><br/>
+        
         <div className='formbody'>
-          < Form/>
+          <BrowserRouter>
+          <Routes>
+        <Route
+          path="/Appointment"
+          element={<AddAppoinment></AddAppoinment>}
+        />
+        <Route
+          path="/otp"
+          element={<SuccessOTP></SuccessOTP>}
+        />
+         <Route
+          path="/AppoinmentTable"
+          element={<AppoinmentTable></AppoinmentTable>}
+        />
+         <Route
+                    path="/service"
+                    element={<Table></Table>}
+                  />
+
+                
+                <Route
+                  path="/Form"
+                  element={<NameForm></NameForm>}
+                />
+      </Routes>
+          </BrowserRouter>
+         
         </div>
       </div>
       </div>
+      
     </main>
+
+    
   );
   }
 }

@@ -23,7 +23,7 @@ const getAllUtilityBill= async (req,res)=>{
 }
 
 const getUtilityBill = async (req,res)=>{
-    const utilitybillID = req.params.utilitybillID;
+    const utilitybillID = req.params.UtilitybillId;
     try {
         const utilitybill = await UtilityBill.findById(utilitybillID);
         res.send(utilitybill)

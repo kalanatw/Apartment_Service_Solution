@@ -1,8 +1,9 @@
 const Appointment = require("../models/appointment")
 
 const createAppointment = async (req,res)=>{
+    console.log(req.body)
     const appoinment = new Appointment({
-        ...req.body
+    ...req.body
     })
 
     try {
