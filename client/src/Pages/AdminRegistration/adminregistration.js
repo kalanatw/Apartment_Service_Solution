@@ -7,12 +7,14 @@ import "./registration.css";
 import data from "./mock-data-admin.json";
 import ReadOnlyRowAdmin from "./ReadOnlyRowAdmin";
 import EditableRowAdmin from "./EditableRowAdmin";
+import { addAdminUser } from "../../utils/user";
 
 const Atable = () => {
 
 
 
-  const [contacts, setContacts] = useState(data);
+  const [contacts, setContacts] = useState([]);
+  const [createdUsername,setCreatedUserName] = useState("");
 
   const [addFormData, setAddFormData] = useState({
     userName: "",
@@ -40,6 +42,13 @@ const Atable = () => {
     setAddFormData(newFormData);
   };
 
+  const generateUserName = (email) => {
+    
+    const index = email.indexOf("@");
+    setCreatedUserName(email.substring(0,index));
+    return email.substring(0,index);
+  }
+
   const handleEditFormChange = (event) => {
     event.preventDefault();
 
@@ -55,15 +64,23 @@ const Atable = () => {
   const handleAddFormSubmit = (event) => {
     event.preventDefault();
 
-    const newContact = {
+    var newContact = {
       id: nanoid(),
       userName: addFormData.userName,
       email: addFormData.email,
       designation: addFormData.designation,
     };
-
+    const username = generateUserName(addFormData.email)
+    newContact.userName = username;
     const newContacts = [...contacts, newContact];
-    setContacts(newContacts);
+    // send backend request
+    addAdminUser(newContact).then((res)=>{
+      console.log("Add res:",res)
+      setContacts(newContacts);
+    }).catch((err)=>{
+      // show that error occured while adding the user
+    });
+    
   };
 
   const handleEditFormSubmit = (event) => {
@@ -75,6 +92,7 @@ const Atable = () => {
       email: editFormData.email,
       designation: editFormData.designation,
     };
+    
 
     const newContacts = [...contacts];
 
@@ -158,7 +176,8 @@ const Atable = () => {
       <input
           type="text"
           name="userName"
-          required="required"
+                  value={createdUsername}
+                  disabled    
           placeholder="Enter username..."
           onChange={handleAddFormChange}
         />
@@ -173,7 +192,7 @@ const Atable = () => {
         <input
           type="text"
           name="designation"
-          required="required"
+          
           placeholder="Enter designation..."
           onChange={handleAddFormChange}
         />
