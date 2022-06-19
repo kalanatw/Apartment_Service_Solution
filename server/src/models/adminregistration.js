@@ -2,6 +2,11 @@ const mongoose = require("mongoose")
 
 
 const AddAdminUserSchema = new mongoose.Schema({
+
+    userName :{
+        type:String,
+    },
+
     FirstName :{
         type:String,
 
@@ -13,28 +18,8 @@ const AddAdminUserSchema = new mongoose.Schema({
     Email:{
         type:String,
 
-    },
-    password:{
-        type:String,
-
-
-    },
-    EmployeeID :{
-        type:String,
-
-    },
-    Mobile_number:{
-        type:Number,
-
-    },
-    Designation:{
-        type:String,
-
-    },
-    Address :{
-        type:String,
-
-    },
+    }
+    
 
 },
 

@@ -1,32 +1,28 @@
 import React, { useState, Fragment } from "react";
-/*import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";*/
 import { nanoid } from "nanoid";
-/*import "../Login/styles.module.css";*/
-import "./registration.css";
-import data from "./mock-data-admin.json";
-import ReadOnlyRowAdmin from "./ReadOnlyRowAdmin";
-import EditableRowAdmin from "./EditableRowAdmin";
+import "../AdminRegistration/registration.css";
+import data from "./mock-data-resident.json";
+import ReadOnlyRow from "./ReadOnlyRowResident";
+import EditableRow from "./EditableRowResident";
 
-const Atable = () => {
-
-
+const Rtable = () => {
 
   const [contacts, setContacts] = useState(data);
-
   const [addFormData, setAddFormData] = useState({
     userName: "",
     email: "",
-    designation: "",
+    hnumber: "",
+    bnumber: "",
   });
 
   const [editFormData, setEditFormData] = useState({
     userName: "",
     email: "",
     designation: "",
+    bnumber: "",
   });
 
-  const [editContactId, setEditContactId] = useState(data);
+  const [editContactId, setEditContactId] = useState(null);
 
   const handleAddFormChange = (event) => {
     event.preventDefault();
@@ -59,7 +55,8 @@ const Atable = () => {
       id: nanoid(),
       userName: addFormData.userName,
       email: addFormData.email,
-      designation: addFormData.designation,
+      hnumber: addFormData.hnumber,
+      bnumber: addFormData.bnumber,
     };
 
     const newContacts = [...contacts, newContact];
@@ -73,7 +70,8 @@ const Atable = () => {
       id: editContactId,
       userName: editFormData.userName,
       email: editFormData.email,
-      designation: editFormData.designation,
+      hnumber: editFormData.hnumber,
+      bnumber: editFormData.bnumber,
     };
 
     const newContacts = [...contacts];
@@ -93,7 +91,8 @@ const Atable = () => {
     const formValues = {
         userName: contact.userName,
         email: contact.email,
-        designation: contact.designation,
+        hnumber: contact.hnumber,
+        bnumber: contact.bnumber,
     };
 
     setEditFormData(formValues);
@@ -113,20 +112,18 @@ const Atable = () => {
     setContacts(newContacts);
   };
 
-
-
-
   return (
     <div className="app-container">
      
-      <form onSubmit={handleEditFormSubmit}>
+      <form onSubmit={handleEditFormSubmit} className='registrationform'>
 
         <table>
           <thead>
             <tr>
               <th>User Name</th>
               <th>E-mail</th>
-              <th> Desigation</th>
+              <th> House Number</th>
+              <th>Block Number</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -134,13 +131,13 @@ const Atable = () => {
             {contacts.map((contact) => (
               <Fragment>
                 {editContactId === contact.id ? (
-                  <EditableRowAdmin
+                  <EditableRow
                     editFormData={editFormData}
                     handleEditFormChange={handleEditFormChange}
                     handleCancelClick={handleCancelClick}
                   />
                 ) : (
-                  <ReadOnlyRowAdmin
+                  <ReadOnlyRow
                     contact={contact}
                     handleEditClick={handleEditClick}
                     handleDeleteClick={handleDeleteClick}
@@ -152,17 +149,16 @@ const Atable = () => {
         </table>
       </form>
 
-      <h2>Admin Management</h2>
-      <form onSubmit={handleAddFormSubmit}>
+      <h2>Resident Management</h2>
+      <form onSubmit={handleAddFormSubmit} className='registrationform'>
 
-      <input
+        <input
           type="text"
           name="userName"
           required="required"
           placeholder="Enter username..."
           onChange={handleAddFormChange}
         />
-
         <input
           type="email"
           name="email"
@@ -172,12 +168,19 @@ const Atable = () => {
         />
         <input
           type="text"
-          name="designation"
+          name="hnumber"
           required="required"
-          placeholder="Enter designation..."
+          placeholder="Enter house number..."
           onChange={handleAddFormChange}
         />
-        <button type="submit">Add an admin </button>
+        <input
+          type="text"
+          name="bnumber"
+          required="required"
+          placeholder="Enter block number..."
+          onChange={handleAddFormChange}
+        />
+        <button type="submit">Create Account </button>
 
 
       </form>
@@ -186,4 +189,4 @@ const Atable = () => {
   );
 };
 
-export default Atable;
+export default Rtable;

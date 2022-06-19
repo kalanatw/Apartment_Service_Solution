@@ -1,32 +1,28 @@
 import React, { useState, Fragment } from "react";
-/*import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";*/
 import { nanoid } from "nanoid";
-/*import "../Login/styles.module.css";*/
-import "./registration.css";
-import data from "./mock-data-admin.json";
-import ReadOnlyRowAdmin from "./ReadOnlyRowAdmin";
-import EditableRowAdmin from "./EditableRowAdmin";
+import "../AdminRegistration/registration.css";
+import data from "./mock-data-security.json";
+import ReadOnlyRow from "./ReadOnlyRowSecurity";
+import EditableRow from "./EditableRowSecurity";
 
-const Atable = () => {
-
-
+const Stable = () => {
 
   const [contacts, setContacts] = useState(data);
-
   const [addFormData, setAddFormData] = useState({
     userName: "",
-    email: "",
-    designation: "",
+    nic: "",
+    email:"",
+
   });
 
   const [editFormData, setEditFormData] = useState({
     userName: "",
-    email: "",
-    designation: "",
+    nic: "",
+    email:"",
+
   });
 
-  const [editContactId, setEditContactId] = useState(data);
+  const [editContactId, setEditContactId] = useState(null);
 
   const handleAddFormChange = (event) => {
     event.preventDefault();
@@ -58,8 +54,9 @@ const Atable = () => {
     const newContact = {
       id: nanoid(),
       userName: addFormData.userName,
+      nic: addFormData.nic,
       email: addFormData.email,
-      designation: addFormData.designation,
+
     };
 
     const newContacts = [...contacts, newContact];
@@ -72,8 +69,9 @@ const Atable = () => {
     const editedContact = {
       id: editContactId,
       userName: editFormData.userName,
+      nic: editFormData.nic,
       email: editFormData.email,
-      designation: editFormData.designation,
+
     };
 
     const newContacts = [...contacts];
@@ -92,8 +90,9 @@ const Atable = () => {
 
     const formValues = {
         userName: contact.userName,
+        nic: contact.nic,
         email: contact.email,
-        designation: contact.designation,
+
     };
 
     setEditFormData(formValues);
@@ -113,9 +112,6 @@ const Atable = () => {
     setContacts(newContacts);
   };
 
-
-
-
   return (
     <div className="app-container">
      
@@ -125,8 +121,8 @@ const Atable = () => {
           <thead>
             <tr>
               <th>User Name</th>
-              <th>E-mail</th>
-              <th> Desigation</th>
+              <th>NIC</th>
+              <th>Email</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -134,13 +130,13 @@ const Atable = () => {
             {contacts.map((contact) => (
               <Fragment>
                 {editContactId === contact.id ? (
-                  <EditableRowAdmin
+                  <EditableRow
                     editFormData={editFormData}
                     handleEditFormChange={handleEditFormChange}
                     handleCancelClick={handleCancelClick}
                   />
                 ) : (
-                  <ReadOnlyRowAdmin
+                  <ReadOnlyRow
                     contact={contact}
                     handleEditClick={handleEditClick}
                     handleDeleteClick={handleDeleteClick}
@@ -152,7 +148,7 @@ const Atable = () => {
         </table>
       </form>
 
-      <h2>Admin Management</h2>
+      <h2>Security Management</h2>
       <form onSubmit={handleAddFormSubmit}>
 
       <input
@@ -170,14 +166,8 @@ const Atable = () => {
           placeholder="Enter an email..."
           onChange={handleAddFormChange}
         />
-        <input
-          type="text"
-          name="designation"
-          required="required"
-          placeholder="Enter designation..."
-          onChange={handleAddFormChange}
-        />
-        <button type="submit">Add an admin </button>
+
+        <button type="submit">Create Account </button>
 
 
       </form>
@@ -186,4 +176,4 @@ const Atable = () => {
   );
 };
 
-export default Atable;
+export default Stable;

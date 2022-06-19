@@ -8,6 +8,11 @@ import AppoinmentTable from './Pages/Appoinment/AppoinmentTable';
 
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Atable from './Pages/AdminRegistration/adminregistration';
+import Homepage from './Pages/Homepage/homepage';
+import LoginPage from './Pages/login/login';
+import Welcomepage from './Pages/WelcomePage/welcomepage';
+import Rtable from './Pages/ResidentManagement/residentmanagement';
+import Stable from './Pages/SecurityManagement/securitymanagement';
 
 class App extends Component {
   render () {
@@ -23,8 +28,19 @@ class App extends Component {
       <div className='bodycss'>
         
         <div className='formbody'>
+       
           <BrowserRouter>
           <Routes>
+          <Route
+          path="/"
+          element={<Welcomepage />}
+          />
+          
+           <Route
+          path="/LoginPage"
+          element={<LoginPage></LoginPage>}
+          /> 
+          
         <Route
           path="/Appointment"
           element={<AddAppoinment></AddAppoinment>}
@@ -43,13 +59,35 @@ class App extends Component {
           element={<Atable></Atable>}
         />
 
+        <Route
+          path="/ResidentManagement"
+          element={<Rtable></Rtable>}
+        />
+
+        <Route
+          path="/SecurityManagement"
+          element={<Stable></Stable>}
+        />
+
+
+
+        <Route
+          path="/Home"
+          element={<Homepage></Homepage>}
+        />
+
+         <Route
+          path="/Welcomepage"
+          element={<Welcomepage></Welcomepage>}
+          /> 
+          
+
       </Routes>
           </BrowserRouter>
          
         </div>
       </div>
       </div>
-      
     </main>
 
     

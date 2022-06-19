@@ -10,6 +10,7 @@ const addserviceSchema = new mongoose.Schema({
     LastName:{
         type:String,
     },
+    
     ServiceCatogory :{
         type:String,
     },

@@ -1,0 +1,187 @@
+.page1{
+
+width: 1038px;
+height: 963px;
+left: 7px;
+top: 55px;
+}
+
+.covercontainer{
+    width:500px;
+    z-index: 1;
+}
+
+.imagesize{
+    height: 100px;
+    width: 100px;
+}
+
+.header1{
+    position: absolute;
+    left: 638px;
+    top: 648px;
+    font-family: 'Trebuchet MS';
+    font-size: 30px;
+    letter-spacing: 0.08em;
+    color: #000000;
+}
+
+.line{
+    position: absolute;
+    width: 260px;
+    height: 0px;
+    left: 590px;
+    top: 725px;
+    border: 0px solid #000000;
+}
+
+/*Profile*/
+.container1{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    left: 256px;
+    top: 871px;
+    position: absolute;
+    background: rgba(235, 102, 45, 0.37);
+    border-radius: 30px 0px;
+}
+
+
+.text1{
+    position: absolute;
+    height: 40px;
+    text-align:justify;
+    left:56px;
+    top: 56px;
+    font-family: 'Trebuchet MS';
+    font-size: 24px;
+    color: #000000;
+}
+
+
+/*User Management*/
+.container2{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    left: 577px;
+    top: 871px;
+    background: rgba(184, 27, 74, 0.15);
+    border-radius: 30px 0px;
+}
+
+
+.text2{
+    position: absolute;
+    width: 180px;
+    height: 40px;
+    text-align:justify;
+    left: 26px;
+    top: 56px;
+    font-family: 'Trebuchet MS';
+    font-size: 24px;
+    color: #000000;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+
+/*appointment*/
+.container3{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    left: 898px;
+    top: 871px;
+    background: rgba(164, 175, 224, 0.6);
+    border-radius: 30px 0px;
+}
+
+.text3{
+    position: absolute;
+    width: 180px;
+    height: 40px;
+    text-align:justify;
+    left: 18px;
+    top: 56px;
+    font-family: 'Trebuchet MS';
+    font-size: 24px;
+    color: #000000;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+/*bill management*/
+.container4{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    left: 256px;
+    top: 1226px;
+    background: rgba(164, 175, 224, 0.6);
+    border-radius: 30px 0px;
+}
+ 
+    .text4{
+    position: absolute;
+    width: 180px;
+    height: 80px;
+    text-align:justify;
+    left: 28px;
+    top: 56px;
+    font-family: 'Trebuchet MS';
+    font-size: 24px;
+    color: #000000;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+
+    /*complaint management*/
+.container5{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    left: 577PX;
+    top: 1226px;
+    background: rgba(224, 164, 186, 0.6);
+    border-radius: 30px 0px;
+}
+ 
+    .text5{
+    position: absolute;
+    width: 180px;
+    height: 80px;
+    text-align:justify;
+    left: 28px;
+    top: 56px;
+    font-family: 'Trebuchet MS';
+    font-size: 24px;
+    color: #000000;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/*service management*/
+.container6{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    left: 898px;
+    top: 1226px;
+    background: rgba(237, 196, 50, 0.47);
+    border-radius: 30px 0px;
+}
+ 
+.text6{
+    position: absolute;
+    width: 180px;
+    height: 80px;
+    text-align:justify;
+    left: 38px;
+    top: 56px;
+    font-family: 'Trebuchet MS';
+    font-size: 24px;
+    color: #000000;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
