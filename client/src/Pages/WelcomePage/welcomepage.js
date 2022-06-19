@@ -5,7 +5,9 @@ function Welcomepage() {
   return (
     <div className='welcomecontainer'>
        <img src={WelcomePic}  />
+       <button type='submit'>Login</button>
     </div>
+    
   )
 }
 
