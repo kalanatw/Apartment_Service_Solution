@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 const complaintsSchema = new mongoose.Schema({
   complaintID: {
@@ -24,6 +24,6 @@ const complaintsSchema = new mongoose.Schema({
   },
 });
 
-const Complaints = mongoose.model("Complaints",complaintsSchema);
+const Complaints = mongoose.model("Complaints", complaintsSchema);
 
-module.exports=Complaints;
+module.exports = Complaints;

@@ -3,37 +3,35 @@
   flex-direction: column;
   gap: 10px;
   padding: 1rem;
-  
 }
 
 table {
   border-collapse: collapse;
   width: 100%;
   border: 2px;
-  margin-left: 100px;
+  margin-left: 20px;
 }
 
 #head {
-    text-align: center;
-    font-family: arial, sans-serif;
-    margin-top:5px;
-  
-    position: absolute;
+  text-align: center;
+  font-family: arial, sans-serif;
+  margin-top: 5px;
+
+  position: absolute;
   width: 253px;
   height: 42px;
   left: 285px;
   top: 10px;
-  
-  font-family: 'Scada';
+
+  font-family: "Scada";
   font-style: italic;
   font-weight: 700;
-  font-size: 22px;
+  font-size: 15px;
   line-height: 27px;
   letter-spacing: -0.333333px;
-  
-  }
-  
- /*
+}
+
+/*
   #complaints {
     text-align: center;
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -53,31 +51,36 @@ table {
   top: 50px;
   }
   */
-  
-  #complaints td, #complaints th {
-    border: 1px solid #ddd;
-    padding: 30px;
-    text-align: left;
-    font-size: 20px;
-  }
-  
-  #complaints tr:nth-child(even){background-color: #f2f2f2;}
-  
-  #complaints tr:hover {background-color: #ddd;}
-  
-  #complaints th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: center;
-    background-color: #096857;
-    color: white;
-  }
 
- #complaints{
+#complaints td,
+#complaints th {
+  border: 1px solid #ddd;
+  padding: 30px;
+  text-align: left;
+  font-size: 15px;
+}
+
+#complaints tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#complaints tr:hover {
+  background-color: #ddd;
+}
+
+#complaints th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #096857;
+  color: white;
+}
+
+#complaints {
   left: 300px;
-  }
+}
 
-  /*
+/*
   form {
     display: flex;
     gap: 5px;
@@ -93,4 +96,3 @@ table {
   }
   
   */
-  

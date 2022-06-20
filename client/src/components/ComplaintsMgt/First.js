@@ -24,7 +24,7 @@ function ComplaintsTable() {
   const editTheRow = (details) => {
     // Call the api
     axios
-      .patch("http://localhost:8000/complaints/" + details._id, details)
+      .put("/complaint/" + details._id, details)
       .then((res) => {
         console.log("Respnse IS : ", res);
         getComplaintsDetails();
@@ -38,10 +38,11 @@ function ComplaintsTable() {
 
   const getComplaintsDetails = async () => {
     await axios
-      .get("http://localhost:8000/complaints")
+      //.get("http://localhost:8000/complaints")
+      .get("/complaint")
       .then((res) => {
-        console.log(res.data);
-        setData(res.data);
+        console.log(res.data.data);
+        setData(res.data.data);
       })
       .catch((err) => {
         console.log(err);
@@ -69,10 +70,10 @@ function ComplaintsTable() {
                   <>
                     <tr>
                       <td>{index + 1}</td>
-                      <td>{item.ResidentID}</td>
-                      <td>{item.Date.split("T")[0]}</td>
-                      <td>{item.Category}</td>
-                      <td>{item.Description}</td>
+                      <td>{item.residentId}</td>
+                      <td>{item.date.split("T")[0]}</td>
+                      <td>{item.category}</td>
+                      <td>{item.description}</td>
                       {editingTab?._id === item?._id ? (
                         <td>
                           <input
