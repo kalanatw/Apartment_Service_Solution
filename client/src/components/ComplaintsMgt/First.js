@@ -40,8 +40,8 @@ function ComplaintsTable() {
     await axios
       .get("http://localhost:8000/complaints")
       .then((res) => {
-        console.log(res.data.data);
-        setData(res.data.data);
+        console.log(res.data);
+        setData(res.data);
       })
       .catch((err) => {
         console.log(err);
