@@ -27,16 +27,7 @@ const EditableRowAdmin = ({
           onChange={handleEditFormChange}
         ></input>
       </td>
-      <td>
-        <input
-          type="text"
-          required="required"
-          placeholder="Enter a designation ..."
-          name="designation"
-          value={editFormData.designation}
-          onChange={handleEditFormChange}
-        ></input>
-      </td>
+
       <td>
         <button type="submit">Save</button>
         <button type="button" onClick={handleCancelClick}>

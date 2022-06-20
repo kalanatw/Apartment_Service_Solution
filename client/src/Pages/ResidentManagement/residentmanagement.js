@@ -1,24 +1,23 @@
 import React, { useState, Fragment } from "react";
 import { nanoid } from "nanoid";
 import "../AdminRegistration/registration.css";
-import data from "./mock-data-resident.json";
+//import data from "./mock-data-resident.json";
 import ReadOnlyRow from "./ReadOnlyRowResident";
 import EditableRow from "./EditableRowResident";
 
 const Rtable = () => {
 
-  const [contacts, setContacts] = useState(data);
+  const [contacts, setContacts] = useState([]);
   const [addFormData, setAddFormData] = useState({
-    userName: "",
     email: "",
     hnumber: "",
     bnumber: "",
   });
 
   const [editFormData, setEditFormData] = useState({
-    userName: "",
+  
     email: "",
-    designation: "",
+    hnumber: "",
     bnumber: "",
   });
 
@@ -53,7 +52,6 @@ const Rtable = () => {
 
     const newContact = {
       id: nanoid(),
-      userName: addFormData.userName,
       email: addFormData.email,
       hnumber: addFormData.hnumber,
       bnumber: addFormData.bnumber,
@@ -68,7 +66,6 @@ const Rtable = () => {
 
     const editedContact = {
       id: editContactId,
-      userName: editFormData.userName,
       email: editFormData.email,
       hnumber: editFormData.hnumber,
       bnumber: editFormData.bnumber,
@@ -89,7 +86,6 @@ const Rtable = () => {
     setEditContactId(contact.id);
 
     const formValues = {
-        userName: contact.userName,
         email: contact.email,
         hnumber: contact.hnumber,
         bnumber: contact.bnumber,
@@ -120,7 +116,7 @@ const Rtable = () => {
         <table>
           <thead>
             <tr>
-              <th>User Name</th>
+
               <th>E-mail</th>
               <th> House Number</th>
               <th>Block Number</th>
@@ -153,30 +149,23 @@ const Rtable = () => {
       <form onSubmit={handleAddFormSubmit} className='registrationform'>
 
         <input
-          type="text"
-          name="userName"
-          required="required"
-          placeholder="Enter username..."
-          onChange={handleAddFormChange}
-        />
-        <input
           type="email"
           name="email"
-          required="required"
+          required
           placeholder="Enter an email..."
           onChange={handleAddFormChange}
         />
         <input
           type="text"
           name="hnumber"
-          required="required"
+          required
           placeholder="Enter house number..."
           onChange={handleAddFormChange}
         />
         <input
           type="text"
           name="bnumber"
-          required="required"
+          required
           placeholder="Enter block number..."
           onChange={handleAddFormChange}
         />

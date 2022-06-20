@@ -1,7 +1,9 @@
 .formInput{
     display: flex;
     flex-direction: column;
+    margin-top: 80px;
     width: 380px;
+
 }
 
 input{
@@ -13,9 +15,10 @@ input{
 
 
 label{
-    font-size: 18px;
-    color: gray;
-    font-weight: bold;
+    font-family: 'Times new roman';
+    font-size: 16px;
+    letter-spacing: 0.05em;
+    color: #000000;
 }
 
 span{

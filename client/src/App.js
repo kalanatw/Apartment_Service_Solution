@@ -12,6 +12,9 @@ import Homepage from './Pages/Homepage/homepage';
 import Welcomepage from './Pages/WelcomePage/welcomepage';
 import Rtable from './Pages/ResidentManagement/residentmanagement';
 import Stable from './Pages/SecurityManagement/securitymanagement';
+import Login2 from './Pages/LoginPage/login';
+//import Profile from './Pages/Profile/profile';
+
 
 class App extends Component {
   render () {
@@ -63,6 +66,13 @@ class App extends Component {
           path="/SecurityManagement"
           element={<Stable></Stable>}
         />
+
+
+
+        <Route
+          path="/LoginPage"
+          element={<Login2></Login2>}
+          />
 
 
         <Route

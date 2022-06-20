@@ -1,23 +1,19 @@
 import React, { useState, Fragment } from "react";
 import { nanoid } from "nanoid";
 import "../AdminRegistration/registration.css";
-import data from "./mock-data-security.json";
+//import data from "./mock-data-security.json";
 import ReadOnlyRow from "./ReadOnlyRowSecurity";
 import EditableRow from "./EditableRowSecurity";
 
 const Stable = () => {
 
-  const [contacts, setContacts] = useState(data);
+  const [contacts, setContacts] = useState([]);
   const [addFormData, setAddFormData] = useState({
-    userName: "",
-    nic: "",
     email:"",
 
   });
 
   const [editFormData, setEditFormData] = useState({
-    userName: "",
-    nic: "",
     email:"",
 
   });
@@ -53,8 +49,6 @@ const Stable = () => {
 
     const newContact = {
       id: nanoid(),
-      userName: addFormData.userName,
-      nic: addFormData.nic,
       email: addFormData.email,
 
     };
@@ -68,8 +62,6 @@ const Stable = () => {
 
     const editedContact = {
       id: editContactId,
-      userName: editFormData.userName,
-      nic: editFormData.nic,
       email: editFormData.email,
 
     };
@@ -89,8 +81,6 @@ const Stable = () => {
     setEditContactId(contact.id);
 
     const formValues = {
-        userName: contact.userName,
-        nic: contact.nic,
         email: contact.email,
 
     };
@@ -120,8 +110,6 @@ const Stable = () => {
         <table>
           <thead>
             <tr>
-              <th>User Name</th>
-              <th>NIC</th>
               <th>Email</th>
               <th>Actions</th>
             </tr>
@@ -150,14 +138,6 @@ const Stable = () => {
 
       <h2>Security Management</h2>
       <form onSubmit={handleAddFormSubmit}>
-
-      <input
-          type="text"
-          name="userName"
-          required="required"
-          placeholder="Enter username..."
-          onChange={handleAddFormChange}
-        />
 
         <input
           type="email"

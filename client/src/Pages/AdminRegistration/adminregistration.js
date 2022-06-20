@@ -19,13 +19,13 @@ const Atable = () => {
   const [addFormData, setAddFormData] = useState({
     userName: "",
     email: "",
-    designation: "",
+    
   });
 
   const [editFormData, setEditFormData] = useState({
     userName: "",
     email: "",
-    designation: "",
+   
   });
 
   const [editContactId, setEditContactId] = useState(data);
@@ -68,7 +68,7 @@ const Atable = () => {
       id: nanoid(),
       userName: addFormData.userName,
       email: addFormData.email,
-      designation: addFormData.designation,
+      
     };
     const username = generateUserName(addFormData.email)
     newContact.userName = username;
@@ -90,7 +90,7 @@ const Atable = () => {
       id: editContactId,
       userName: editFormData.userName,
       email: editFormData.email,
-      designation: editFormData.designation,
+
     };
     
 
@@ -111,7 +111,7 @@ const Atable = () => {
     const formValues = {
         userName: contact.userName,
         email: contact.email,
-        designation: contact.designation,
+
     };
 
     setEditFormData(formValues);
@@ -144,7 +144,6 @@ const Atable = () => {
             <tr>
               <th>User Name</th>
               <th>E-mail</th>
-              <th> Desigation</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -189,13 +188,7 @@ const Atable = () => {
           placeholder="Enter an email..."
           onChange={handleAddFormChange}
         />
-        <input
-          type="text"
-          name="designation"
-          
-          placeholder="Enter designation..."
-          onChange={handleAddFormChange}
-        />
+
         <button type="submit">Add an admin </button>
 
 

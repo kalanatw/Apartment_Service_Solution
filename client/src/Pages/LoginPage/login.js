@@ -2,7 +2,9 @@ import FormInput from './FormInput';
 import './login.css';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Homepage from '../HomePage/homepage';
+import Homepage from '../Homepage/homepage';
+import profile from '../../components/images/bx_bxs-user.png';
+import sidepic from '../../components/images/sidepic.png';
 //import SideBarImg from './img/sidepic.png';
 
 function Login2() {
@@ -13,18 +15,18 @@ function Login2() {
   });
  
   const inputs =[
+
     {
-      id: 1,
-      name: "Username",
-      type: "text",
-      placeholder: "Username",
-      errorMessage: 
-          "Username should be 3-16 characters and shouldn't include any special character!",
-      label: "Username:",
-      pattern: "^[A-Za-z0-9]{3,16}$",
-      required: true,
-      
+      id:1,
+      name:"Email",
+      type:"email",
+      placeholder:"Email",
+      errorMessage: "Username should be your email",
+      label:"Email:",
+      pattern:'^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$',
+      required:true,
     },
+
     {
       id: 2,
       name: "Password",
@@ -41,7 +43,12 @@ function Login2() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Send uername,password to the backend
+    // get the response and check it and route to the dashboard
+    
   };
+
+
 
   const onChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
@@ -49,11 +56,18 @@ function Login2() {
   
   return (
     <div className='mainContainer'>
-        {/*<img src={SideBarImg}  alt="welcome image" className='welcomepic' />*/}
+        <img src={sidepic}  className='welcomepic' />
+
       <div className='login-container'>
         <form onSubmit={handleSubmit}>
+
         <div className='loginStyles'>
-        <h1>Administrator Login</h1>
+        <div className ="imgs">
+             
+             <img src={profile} alt="profile" />
+           
+         </div>
+        <h1 className='logintopic'>Administrator Login</h1>
           <div className='inputFiels'>
 
           {inputs.map((input) => (

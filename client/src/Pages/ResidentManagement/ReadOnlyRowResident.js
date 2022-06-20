@@ -4,7 +4,7 @@ import React from "react";
 const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick }) => {
   return (
     <tr>
-      <td>{contact.userName}</td>
+
       <td>{contact.email}</td>
       <td>{contact.hnumber}</td>
       <td>{contact.bnumber}</td>
