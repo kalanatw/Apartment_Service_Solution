@@ -1,38 +1,28 @@
 import React, { useState, Fragment } from "react";
-/*import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";*/
 import { nanoid } from "nanoid";
-/*import "../Login/styles.module.css";*/
 import "./registration.css";
-import data from "./mock-data-admin.json";
-import ReadOnlyRowAdmin from "./ReadOnlyRowAdmin";
-import EditableRowAdmin from "./EditableRowAdmin";
-import { addAdminUser } from "../../utils/user";
+//import data from "./mock-data-security.json";
+import ReadOnlyRow from "./ReadOnlyRowAdmin";
+import EditableRow from "./EditableRowAdmin";
 
 const Atable = () => {
 
-
-
   const [contacts, setContacts] = useState([]);
-  const [createdUsername,setCreatedUserName] = useState("");
-
   const [addFormData, setAddFormData] = useState({
-    userName: "",
-    email: "",
-    
+    email:"",
+
   });
 
   const [editFormData, setEditFormData] = useState({
-    userName: "",
-    email: "",
-   
+    email:"",
+
   });
 
-  const [editContactId, setEditContactId] = useState(data);
+  const [editContactId, setEditContactId] = useState(null);
 
   const handleAddFormChange = (event) => {
     event.preventDefault();
-
+    console.log(event.target.value)
     const fieldName = event.target.getAttribute("name");
     const fieldValue = event.target.value;
 
@@ -41,13 +31,6 @@ const Atable = () => {
 
     setAddFormData(newFormData);
   };
-
-  const generateUserName = (email) => {
-    
-    const index = email.indexOf("@");
-    setCreatedUserName(email.substring(0,index));
-    return email.substring(0,index);
-  }
 
   const handleEditFormChange = (event) => {
     event.preventDefault();
@@ -61,26 +44,42 @@ const Atable = () => {
     setEditFormData(newFormData);
   };
 
-  const handleAddFormSubmit = (event) => {
-    event.preventDefault();
+  const handleAddFormSubmit = async () => {
+    await axios
+      //.get("http://localhost:8000/complaints")
+      .get("/admin/create")
+      .then((res) => {
+        console.log(res.data.data);
+        setData(res.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-    var newContact = {
-      id: nanoid(),
-      userName: addFormData.userName,
-      email: addFormData.email,
-      
+  /*const handleAddFormSubmit = (event) => {
+    event.preventDefault();
+    console.log(addFormData)
+    const getComplaintsDetails = async () => {
+      await axios
+        //.get("http://localhost:8000/complaints")
+        .get("/complaint")
+        .then((res) => {
+          console.log(res.data.data);
+          setData(res.data.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     };
-    const username = generateUserName(addFormData.email)
-    newContact.userName = username;
+    const newContact = {
+      id: nanoid(),
+      email: addFormData.email,
+
+    };*/
+
     const newContacts = [...contacts, newContact];
-    // send backend request
-    addAdminUser(newContact).then((res)=>{
-      console.log("Add res:",res)
-      setContacts(newContacts);
-    }).catch((err)=>{
-      // show that error occured while adding the user
-    });
-    
+    setContacts(newContacts);
   };
 
   const handleEditFormSubmit = (event) => {
@@ -88,11 +87,9 @@ const Atable = () => {
 
     const editedContact = {
       id: editContactId,
-      userName: editFormData.userName,
       email: editFormData.email,
 
     };
-    
 
     const newContacts = [...contacts];
 
@@ -109,7 +106,6 @@ const Atable = () => {
     setEditContactId(contact.id);
 
     const formValues = {
-        userName: contact.userName,
         email: contact.email,
 
     };
@@ -131,9 +127,6 @@ const Atable = () => {
     setContacts(newContacts);
   };
 
-
-
-
   return (
     <div className="app-container">
      
@@ -142,8 +135,7 @@ const Atable = () => {
         <table>
           <thead>
             <tr>
-              <th>User Name</th>
-              <th>E-mail</th>
+              <th>Email</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -151,13 +143,13 @@ const Atable = () => {
             {contacts.map((contact) => (
               <Fragment>
                 {editContactId === contact.id ? (
-                  <EditableRowAdmin
+                  <EditableRow
                     editFormData={editFormData}
                     handleEditFormChange={handleEditFormChange}
                     handleCancelClick={handleCancelClick}
                   />
                 ) : (
-                  <ReadOnlyRowAdmin
+                  <ReadOnlyRow
                     contact={contact}
                     handleEditClick={handleEditClick}
                     handleDeleteClick={handleDeleteClick}
@@ -172,24 +164,21 @@ const Atable = () => {
       <h2>Admin Management</h2>
       <form onSubmit={handleAddFormSubmit}>
 
-      <input
-          type="text"
-          name="userName"
-                  value={createdUsername}
-                  disabled    
-          placeholder="Enter username..."
-          onChange={handleAddFormChange}
-        />
-
         <input
           type="email"
           name="email"
           required="required"
           placeholder="Enter an email..."
-          onChange={handleAddFormChange}
+          onChange={(e) =>
+            setAddFormData({
+              ...addFormData,
+              email: e.target.value,
+            })
+          }
+
         />
 
-        <button type="submit">Add an admin </button>
+        <button type="submit">Create Account </button>
 
 
       </form>

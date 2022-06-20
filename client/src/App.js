@@ -13,6 +13,7 @@ import Welcomepage from './Pages/WelcomePage/welcomepage';
 import Rtable from './Pages/ResidentManagement/residentmanagement';
 import Stable from './Pages/SecurityManagement/securitymanagement';
 import Login2 from './Pages/LoginPage/login';
+import ComplaintsTable from './Pages/ComplaintsMgt/First';
 //import Profile from './Pages/Profile/profile';
 
 
@@ -67,6 +68,10 @@ class App extends Component {
           element={<Stable></Stable>}
         />
 
+        <Route
+        path="/ComplaintsMgt"
+        element={<ComplaintsTable></ComplaintsTable>}
+        />
 
 
         <Route

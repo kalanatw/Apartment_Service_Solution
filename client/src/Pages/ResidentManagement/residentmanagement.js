@@ -10,15 +10,15 @@ const Rtable = () => {
   const [contacts, setContacts] = useState([]);
   const [addFormData, setAddFormData] = useState({
     email: "",
-    hnumber: "",
-    bnumber: "",
+    block_number: "",
+    house_number: "",
   });
 
   const [editFormData, setEditFormData] = useState({
   
     email: "",
-    hnumber: "",
-    bnumber: "",
+    block_number: "",
+    house_number: "",
   });
 
   const [editContactId, setEditContactId] = useState(null);
@@ -53,8 +53,8 @@ const Rtable = () => {
     const newContact = {
       id: nanoid(),
       email: addFormData.email,
-      hnumber: addFormData.hnumber,
-      bnumber: addFormData.bnumber,
+      block_number: addFormData.block_number,
+      house_number: addFormData.house_number,
     };
 
     const newContacts = [...contacts, newContact];
@@ -67,8 +67,8 @@ const Rtable = () => {
     const editedContact = {
       id: editContactId,
       email: editFormData.email,
-      hnumber: editFormData.hnumber,
-      bnumber: editFormData.bnumber,
+      block_number: editFormData.block_number,
+      house_number: editFormData.house_number,
     };
 
     const newContacts = [...contacts];
@@ -87,8 +87,8 @@ const Rtable = () => {
 
     const formValues = {
         email: contact.email,
-        hnumber: contact.hnumber,
-        bnumber: contact.bnumber,
+        block_number: contact.block_number,
+        house_number: contact.house_number,
     };
 
     setEditFormData(formValues);
@@ -157,16 +157,16 @@ const Rtable = () => {
         />
         <input
           type="text"
-          name="hnumber"
+          name="block_number"
           required
-          placeholder="Enter house number..."
+          placeholder="Enter block number..."
           onChange={handleAddFormChange}
         />
         <input
           type="text"
-          name="bnumber"
+          name="house_number"
           required
-          placeholder="Enter block number..."
+          placeholder="Enter house number..."
           onChange={handleAddFormChange}
         />
         <button type="submit">Create Account </button>

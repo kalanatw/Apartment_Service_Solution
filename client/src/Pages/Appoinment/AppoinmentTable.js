@@ -16,7 +16,7 @@ getAppoinmentDetails();
 
 const getAppoinmentDetails = async () => {
   await axios
-    .get('http://localhost:4000/appointment/')
+    .get('http:///appointment/')
     .then((res) => {
       console.log(res)
       setData(res.data)

@@ -1,6 +1,6 @@
 import React from "react";
 
-const EditableRowAdmin = ({
+const EditableRow = ({
   editFormData,
   handleEditFormChange,
   handleCancelClick,
@@ -9,21 +9,11 @@ const EditableRowAdmin = ({
     <tr>
       <td>
         <input
-          type="text"
-          required="required"
-          placeholder="Enter username..."
-          name="userName"
-          value={editFormData.userName}
-          onChange={handleEditFormChange}
-        ></input>
-      </td>
-      <td>
-        <input
           type="email"
           required="required"
-          placeholder="Enter an email..."
+          placeholder="Enter E-mail..."
           name="email"
-          value={editFormData.email}
+          value={editFormData.userName}
           onChange={handleEditFormChange}
         ></input>
       </td>
@@ -38,4 +28,4 @@ const EditableRowAdmin = ({
   );
 };
 
-export default EditableRowAdmin;
+export default EditableRow;
