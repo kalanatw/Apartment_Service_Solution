@@ -5,6 +5,8 @@ const cors = require("cors")
 const {appointmentRouter} = require("./router/appointment.routes")
 const {serviceMemberRouter}=require("./router/servicemember.routes")
 const { utilityBillRouter } = require("./router/utilitybill.routes");
+const { residentappointmentRouter } = require("./router/residentappoinment.routes");
+
 
 const app = express();
 app.use(cors({origin:"*"}))
@@ -25,6 +27,8 @@ app.use(express.json())
 app.use("/appointment",appointmentRouter)
 app.use("/servicemember",serviceMemberRouter)
 app.use("/utilitybill",utilityBillRouter)
+app.use("/residentappointment",residentappointmentRouter)
+
 
 module.exports = app;
 
