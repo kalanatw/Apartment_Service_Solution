@@ -5,6 +5,8 @@ import TopBar from './components/topbar/topbar';
 import Sidebar from './components/sidebar/sidebar';
 import SuccessOTP from './Pages/Appoinment/SuccessAppoinment';
 import AppoinmentTable from './Pages/Appoinment/AppoinmentTable';
+import Table from './Pages/Service-management/Table'
+import NameForm from './Pages/Service-management/NameForm'
 
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 
@@ -29,7 +31,7 @@ class App extends Component {
           element={<AddAppoinment></AddAppoinment>}
         />
         <Route
-          path="/otp"
+          path="/otp/:num"
           element={<SuccessOTP></SuccessOTP>}
         />
          <Route

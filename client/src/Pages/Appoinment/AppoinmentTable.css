@@ -5,13 +5,13 @@
     padding: 1rem;
   }
   
-  table {
+  table1 {
     border-collapse: collapse;
     width: 100%;
   }
   
-  th,
-  td {
+  thh,
+  tdd {
     border: 1px solid #ffffff;
     text-align: left;
     padding: 8px;
@@ -26,7 +26,7 @@
     background-color: rgb(205, 235, 253);
   }
   
-  form {
+  /* form {
     display: flex;
     gap: 5px;
   }
@@ -38,4 +38,14 @@
   
   form * {
     font-size: 28px;
+  } */
+  .Heding1{
+
+    margin-left: 30%;
+
+    font-size: 1rem;
+
+    width: 400px;
+    overflow: hidden;
+    clear: both;
   }

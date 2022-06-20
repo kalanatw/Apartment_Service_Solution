@@ -1,10 +1,11 @@
 import {React,useState,useEffect} from "react";
-import {Form,Button} from "react-bootstrap";
-import {Routes, Route, useNavigate} from 'react-router-dom';
-import './appoinment.css'; 
+import {Form,Button,Modal} from "react-bootstrap";
+import {Routes, Route, useNavigate,Link} from 'react-router-dom';
+// import './appoinment.css'; 
 import {addAppoinment} from "../../utils/appoinment"
-import '../../App.css'
+// import '../../App.css'
 import {SuccessAppoinment} from "./SuccessAppoinment"
+import MyModal from "../../components/modal/MyModal";
 
 
 function AddAppoinment(){
@@ -17,6 +18,12 @@ function AddAppoinment(){
   const [expDate,setexpDate]= useState("")
   const [formError,setFormError]= useState({})
   const [isSubmit,setIsSubmit]= useState(false)
+  const [number,setNumber] =useState(0)
+  // const [modalShow, setModalShow] = useState(false);
+
+  
+
+  
 
 
   const submitAppoinment = async (event) =>{
@@ -24,24 +31,30 @@ function AddAppoinment(){
     // console.log({appointmentName:name,numOfGuest,appointmentNIC:NIC,appointmentDate:date,mobileNumber:mobileNo,expireDate:expDate})
     // const err = validate({appointmentName:name,numOfGuest,appointmentNIC:NIC,appointmentDate:date,mobileNumber:mobileNo,expireDate:expDate})
     setFormError(validate({appointmentName:name,numOfGuest,appointmentNIC:NIC,appointmentDate:date,mobileNumber:mobileNo,expireDate:expDate}))
-    
+    setNumber(Math.floor(1000 + Math.random() * 9000))
     setIsSubmit(true)
-    alert("Submitted succesfully..");
     
     
     
   }
+  
 
   useEffect(()=>{
     console.log(Object.keys(formError).length)
     console.log(isSubmit)
     const addData = async ()=>{
-      const res = await addAppoinment({appointmentName:name,numOfGuest,appointmentNIC:NIC,appointmentDate:date,mobileNumber:mobileNo,expireDate:expDate})
+     
+
+      const res = await addAppoinment({appointmentName:name,numOfGuest,appointmentNIC:NIC,appointmentDate:date,mobileNumber:mobileNo,expireDate:expDate,otp:number})
       console.log(res)
+      // navigateToOtp()
+      
+
     }
     if(Object.keys(formError).length===0 && isSubmit){
       addData()
-      navigate('/otp');
+      
+      // setModalShow(true)
     }
   },[isSubmit,formError])
 
@@ -51,21 +64,25 @@ function AddAppoinment(){
       error.appointmentName = "Appointment Name is required!"
     }
     if(!values.numOfGuest){
-      error.numOfGuest = "Appointment Name is required!"
+      error.numOfGuest = "Number of guest is required!"
     }else if(values.numOfGuest<1){
       error.numOfGuest = "should be > 0"
     }
     if(!values.appointmentNIC){
-      error.appointmentNIC = "Appointment Name is required!"
+      error.appointmentNIC = "NIC is required!"
+    }else if(values.appointmentNIC.length>12){
+      error.appointmentNIC = "NIC cannot have more than 12 numbers!"
     }
     if(!values.appointmentDate){
-      error.appointmentDate = "Appointment Name is required!"
+      error.appointmentDate = "Appointment Date is required!"
     }
     if(!values.mobileNumber){
-      error.mobileNumber = "Appointment Name is required!"
+      error.mobileNumber = "Mobile number is required!"
     }
     if(!values.expireDate){
-      error.expireDate = "Appointment Name is required!"
+      error.expireDate = "Appointment expire date is required!"
+    }else if(values.appointmentDate>values.expireDate){
+      error.expireDate = "qqqqqqqqqqqq"
     }
     return error;
 
@@ -76,7 +93,7 @@ function AddAppoinment(){
 
   const navigateToOtp = () => {
     // 👇️ navigate to /contacts
-    navigate('/otp');
+    navigate('/AppoinmentTable');
   };
 
     return(
@@ -134,14 +151,24 @@ function AddAppoinment(){
     <p>{formError.expireDate}</p>
   </Form.Group>
   <br/><br/><br/>
-
-
   <Button  variant="primary" type="submit" className='submitcss'  >
   {/* <Link to="./SuccessAppoinment"></Link> */}
     Submit
   </Button>
+  {number==0?<></>:<Link className='submitcss' to={{pathname:"/otp/"+number}}>Show OTP</Link>}
+  
+  
 
+  
+  
 </Form>
+
+
+
+{/* <MyModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      /> */}
 </div>
 </div>
 </div>

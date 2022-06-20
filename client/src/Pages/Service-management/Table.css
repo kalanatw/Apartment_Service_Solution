@@ -36,14 +36,14 @@ table {
     background-color: #ddd;
   }
   
-  button {
+  /* button {
     background-color: darkcyan;
     position: absolute;
     width: 229px;
     height: 29px;
     left: 820px;
     top: 100px;
-  }
+  } */
   .aa{
   text-decoration: none;
   }

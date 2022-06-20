@@ -27,7 +27,7 @@ export const sidebardata= [
     {
         title: "Appointment",
         icon: <ListAltIcon />,
-        link: "/Appointment",
+        link: "/AppoinmentTable",
     },
 
     {

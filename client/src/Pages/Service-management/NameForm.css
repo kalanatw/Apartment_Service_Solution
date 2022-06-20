@@ -39,7 +39,7 @@
 .inline {
     position: absolute;
     width: 500px;
-    height: 42px;
+    /* height: 42px; */
     left: 180px;
     top: 20px;
 }
