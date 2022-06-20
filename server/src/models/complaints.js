@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 
 const complaintsSchema = new mongoose.Schema({
-    ID:{
+    complaintID:{
         type:String,
     },
     Date:{
@@ -13,6 +13,12 @@ const complaintsSchema = new mongoose.Schema({
     Description:{
         type:String,
     },
+    Reply:{
+        type:String,
+    },
+    Status:{
+        type:String,
+    }
 
 })
 

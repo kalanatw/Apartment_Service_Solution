@@ -1,7 +1,7 @@
 
   .Sidebar {
     background-color: #096857;
-    height: 100%;
+    height: auto;
     width: 300px;
     padding-top: 0px;
 }

@@ -6,7 +6,7 @@ import Sidebar from './components/sidebar/sidebar';
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import ComplaintsOne from './ComplaintsPages/pageOne';
 import ComplaintsTwo from './ComplaintsPages/pageTwo';
-import Updatepage from './ComplaintsPages/Updatepage';
+//import Updatepage from './ComplaintsPages/Updatepage';
 
 function App (){
   return (
@@ -34,10 +34,6 @@ function App (){
         <Route
           path="/ComplaintsPgTwo"
           element={<ComplaintsTwo></ComplaintsTwo>}
-        />
-      <Route
-          path="/updatepage"
-          element={<Updatepage />}
         />
 
         
