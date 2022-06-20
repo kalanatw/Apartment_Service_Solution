@@ -54,6 +54,7 @@ function ComplaintsTable() {
         <table id="complaints">
           <thead>
             <th>Complaint ID</th>
+            <th>Resident ID</th>
             <th>Date</th>
             <th>Category</th>
             <th>Description</th>
@@ -68,6 +69,7 @@ function ComplaintsTable() {
                   <>
                     <tr>
                       <td>{index + 1}</td>
+                      <td>{item.ResidentID}</td>
                       <td>{item.Date.split("T")[0]}</td>
                       <td>{item.Category}</td>
                       <td>{item.Description}</td>
