@@ -41,7 +41,7 @@ function ComplaintsTable() {
       .get("http://localhost:8000/complaints")
       .then((res) => {
         console.log(res.data.data);
-        setData(res.datadata);
+        setData(res.data.data);
       })
       .catch((err) => {
         console.log(err);
