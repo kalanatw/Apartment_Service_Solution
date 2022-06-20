@@ -19,6 +19,9 @@ const utilityBillSchema = new mongoose.Schema({
     EnterBillID:{
         type:Number,
     },
+    /*PaidAmount:{
+        type:Number,
+    },*/
   
 })
 

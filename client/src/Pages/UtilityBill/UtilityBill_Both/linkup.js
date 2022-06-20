@@ -1,14 +1,14 @@
-import React from 'react';
+/*import React from 'react';
 import './linkup.css'; 
 
 function LinkUp() {
     return (
     <table className='tablecss'>
         <tr>
-            <td className='tdcss'>
+            <td>
                 <div class='boxbill'>
                     <div className='navMenu'>
-                        <a href="#waterbill" color="balck">Water Bill</a>
+                        <a href="/Water" color="balck">Water Bill</a>
                     </div>
                 </div>
             </td>
@@ -25,4 +25,4 @@ function LinkUp() {
     );
 }
 
-export default LinkUp;
+export default LinkUp;*/

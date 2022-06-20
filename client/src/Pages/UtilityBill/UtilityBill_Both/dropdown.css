@@ -1,0 +1,16 @@
+.buttoncss{
+    border:0;
+    background: #3FAB98;
+    text-align: center;
+    border:3px solod #3FAB98;
+    width: 200px;
+    height: 35px;
+    color:black;
+    border-radius:24px;
+    transition:0.25px;
+    margin-left:255px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+    
+    
+    
+  }

@@ -1,7 +1,7 @@
 import React from "react";
 //import TopBar from '../Shared/topbar';
 //import Sidebar from '../Shared/sidebar';
-import LinkUp from "./linkup";
+//import LinkUp from "./linkup";
 import DropDown from './dropdown';
 import Form from './viewbill_water';
 import Addwaterbill from './paid_water';
@@ -17,41 +17,43 @@ const para = {
   }
   
   const subhead = {
-    color:'black',
-    fontSize:'18px'
+    color:'#096857',
+    fontSize:'20px',
+    fontWeight:'bold'
   }
   
   
 
-  export default function Fullwater() {
+export default function Fullwater() {
     return (
-//className="fullbody"
-        <main >
+        <main className="fullbody">
             <div className ="inline">
                 <div className="heading">
                     <p>Utility Bill Management</p>
                 </div>
-                <div>
+               {/*} <div>
                     <LinkUp/>
-                </div>
+    </div>*/}
                
-                <div class="waterbill">
-                    <p style={para}>Water Bill</p>
-                    <p style={subhead}>Add Water Bill</p><br/>
+                <div>
+                    {/*<p style={para}>Water Bill</p>*/}
+                    <br/>
+                    <p style={subhead}>Add Bill</p><br/>
                     <div>
                         <DropDown />
                     </div>
 
+                    <br/><br/>
+                    <p style={subhead}>View Bill</p><br/>
+                    <div className="formbody">
+                        <Form />
+                    </div> 
+
+                    
                     <p style={subhead}>Add Paid Amount</p><br/>
                     <div className="formbody">
                         <Addwaterbill />
                     </div>
-            
-
-                    <p style={subhead}>View Water Bill</p><br/>
-                    <div className="formbody">
-                        <Form />
-                    </div> 
                 </div>   
             </div>
         </main>

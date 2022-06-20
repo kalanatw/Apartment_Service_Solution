@@ -1,163 +1,148 @@
-//import React,{Component} from 'react';
-//import { useState } from "react";
-//import ReactDOM from "react-dom/client";
-//import TopBar from '../Shared/topbar';
-//import Sidebar from '../Shared/sidebar';
+import React from 'react';
+import './viewbill_water.css'; 
+{/*class paid_water extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      ResidentID: '',
+      amount:'',
+      
+    };
 
-/*function MyForm() {
-    const [inputs, setInputs] = useState({});
-  
-    const handleChange = (event) => {
-      const name = event.target.name;
-      const value = event.target.value;
-      setInputs(values => ({...values, [name]: value}))
-    }
-  
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      console.log(inputs);
-    }
-  
-return (
-<main>
-  <div>
-    <TopBar/>
-  </div>
-  <div className ="App">
-    <Sidebar />
-  </div>
-  <div className ="inline">
-    <div className='bodycss'>
-      <h2>Add Bill Amount</h2><br/>
-      <div className='formbody'>
-        <form onSubmit={handleSubmit}>
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({[event.target.name]: event.target.value});
+  }
+    
+
+  handleSubmit(event) {
+    alert('Form was submitted: ' + this.state.value);
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit} className='formbody'>
+        
         <label className='lablecss'>
           Resident ID                   
         </label> 
-        = <input 
-          type="text" 
-          name="ResidentID" 
-          value={inputs.ResidentID || ""} 
-          onChange={handleChange}
-          className='inputcss'
-        />
+        = <input type="text" name='ResidentID' onChange={this.handleChange} className='inputcss' required="required"/>
         <br/><br/>
         
+      
         <label className='lablecss'>
-          Resident Name             
-        </label> 
-        = <input 
-            type="text" 
-            name="Name" 
-            value={inputs.Name || ""} 
-            onChange={handleChange}
-            className='inputcss'
-        />
-        <br/><br/>
-
-        <label className='lablecss'>
-          Enter Bill Amount         
-        </label>  
-        = <input 
-            type="text" 
-            name='billamount'
-            value={inputs.billamount || ""} 
-            onChange={handleChange}
-            className='inputcss'
-
-        />
-        <br/><br/>
-
-        <label className='lablecss'>
-          Enter Bill Month           
+          Enter Paid Amount           
         </label>
-        = <input 
-            type="text" 
-            name='month' 
-            value={inputs.month || ""} 
-            onChange={handleChange}
-            className='inputcss'
-        />
+        = <input type="number" name='amount' onChange={this.handleChange} className='inputcss' required="required" />
         <br/><br/>
 
-        <label className='lablecss'>
-          Enter Bill Type                   
-        </label>
-        = <input 
-            type="text" 
-            name='type' 
-            value={inputs.type || ""} 
-            onChange={handleChange}
-            className='inputcss'
-        />
+        
         <br/><br/>
 
-        <label className='lablecss'>
-          Enter Bill ID                       
-        </label>
-        = <input 
-            type="text" 
-            name='billID' 
-            value={inputs.billID || ""} 
-            onChange={handleChange}
-            className='inputcss'
-        />
-        <br/><br/><br/>
-          <input 
-            type="submit" 
-            className='submitcss'
-        />
-        </form>
-      </div>
-    </div>
-  </div>
-</main>
+        <input type="submit" value="Submit" className='submitcss'/>
+
+        
+      </form>
     );
   }
-  
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<MyForm />);
-export default  MyForm();*/
+}
 
+export default paid_water;*/}
 
+class paid_water extends React.Component {
+  state={
+    value:'',
+    ResidentID:'',
+    amount:'',
+    billType:''
+  };
 
+  handleChange = (event) => {
+    const name= event.target.name;
+    const value= event.target.value;
+
+    this.setState({[name]:value});
+    
+  }
+
+  handlesubmit=(event) => {
+    event.preventDefault();
+    const ResidentID=this.state.ResidentID;
+    const amount=this.state.amount;
+    const billType=this.state.value;
+    console.log(ResidentID,amount,billType);
+
+  }
+render() {
+    return (
+      <form>
+        
+        <label className='lablecss'>
+          Resident ID                   
+        </label> 
+        = <input type="text" name='ResidentID' onChange={this.handleChange} className='inputcss' required="required"/>
+        <br/><br/>
+        
+      
+        <label className='lablecss'>
+          Enter Paid Amount           
+        </label>
+        = <input type="number" name='amount' onChange={this.handleChange} className='inputcss' required="required" />
+        <br/><br/>
+
+        <label className='lablecss'>
+          Enter Bill Type          
+        </label>
+        = <input type="text" name='billType' onChange={this.handleChange} className='inputcss' required="required" />
+        <br/><br/>
+
+        <button onClick={this.handlesubmit} className='submitcss'>Submit</button>
+
+        
+      </form>
+    );
+  }
+}
+
+export default paid_water;
+
+/*
 import {React,useState,useEffect} from "react";
 import './formtest2.css'; 
 import {Form,Button} from "react-bootstrap";
 //import {Routes, Route, useNavigate} from 'react-router-dom';
-import {addBill} from "../../../utils/UtilityBillAdding"
+import {addPaidAmount} from "../../../utils/paidamount"
 
 
-function AddBill(){
+function AddPaidAmount(){
 
   const [ResidentID,setResidentID]= useState("")
-  const [Name,setName]= useState("")
-  const [billAmount,setbillAmount]= useState(0)
-  const [month,setmonth]= useState("")
-  const [billtype,setbilltype]= useState("")
-  const [billID,setbillID]= useState(0)
+  const [PaidAmount,setPaidAmount]= useState(0)
+  const [BillType, setBillType]= useState("")
   const [formError,setFormError]= useState({})
   const [isSubmit,setIsSubmit]= useState(false)
 
 
   const submitBILL = async (event) =>{
     event.preventDefault();
-    setFormError(validate({ResidentID,ResidentName:Name,EnterBillAmount:billAmount,EnterBillMonth:month,EnterBillType:billtype,EnterBillID:billID}))
+    setFormError(validate({ResidentID,}))
     setIsSubmit(true);
    // console.log(typeof(billtype));
     //const type=this.state.EnterBillType;
     
 
     /*console.log(type);*/
+//}
 
-   
-  }
-
-  useEffect(()=>{
+  /*useEffect(()=>{
     console.log(Object.keys(formError).length)
     console.log(isSubmit)
     const addData = async ()=>{
-      const res = await addBill({ResidentID,ResidentName:Name,EnterBillAmount:billAmount,EnterBillMonth:month,EnterBillType:billtype,EnterBillID:billID})
+      const res = await addBill({ResidentID, })
       console.log(res)
     }
     if(Object.keys(formError).length===0 && isSubmit){
@@ -204,9 +189,9 @@ return(
         <h2>Add Bill Amount</h2><br/>
         <div className='bodycss'>
           <div className='formbody'>
-            <form onSubmit={submitBILL}>
+            <form onSubmit={submitBILL}>*/
 {/*className="mb-3" */}
-                <Form.Group controlId="formBasicEmail">
+               /* <Form.Group controlId="formBasicEmail">
                   <Form.Label className="lablecss">Resident ID </Form.Label>
                   = <Form.Control type="text" name="ResidentID " className='inputcss' onChange={(e)=>setResidentID(e.target.value)}/>
                     <p className="onlyerror">{formError.ResidentID}</p>
@@ -236,9 +221,10 @@ return(
 
                 <Form.Group controlId="formBasicEmail">
                   <Form.Label className="lablecss">Enter Bill Type</Form.Label>
-                 = <Form.Control type="text" name="billtype" className='inputcss' onChange={(e)=>setbilltype(e.target.value)}/>
+                  = <Form.Control type="text" name="billtype" className='inputcss' onChange={(e)=>setbilltype(e.target.value)}/>
                   <p className="onlyerror">{formError.EnterBillType}</p>
                 </Form.Group>
+              
                 <br/><br/>
 
                 <Form.Group controlId="formBasicEmail">
@@ -258,4 +244,6 @@ return(
 );
 }
 
-export default AddBill;
+export default AddBill;*/
+
+

@@ -13,6 +13,19 @@ const createutilitybill = async (req,res)=>{
     }
 }
 
+/*const AddPaidAmount = async (req,res)=>{
+    const PaidAmount = new UtilityBill ({
+        ...req.body
+    })
+
+    try {
+        await PaidAmount.save();
+        res.send(PaidAmount)
+    } catch (error) {
+       console.log(error)
+    }
+}*/
+
 const getAllUtilityBill= async (req,res)=>{
     try {
         const utilitybill = await UtilityBill.find();
@@ -62,5 +75,6 @@ module.exports ={
     getAllUtilityBill,
     getUtilityBill,
     updateUtilityBill,
-    deleteUtilityBill
+    deleteUtilityBill,
+    //AddPaidAmount
 }
