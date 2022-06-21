@@ -70,7 +70,7 @@ function ComplaintsTable() {
                   <>
                     <tr>
                       <td>{index + 1}</td>
-                      <td>{item.residentId}</td>
+                      <td>{item.resident_id}</td>
                       <td>{item.date.split("T")[0]}</td>
                       <td>{item.category}</td>
                       <td>{item.description}</td>
