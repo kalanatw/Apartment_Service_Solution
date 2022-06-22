@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react';
 import './viewbill_water.css'; 
 
@@ -6,7 +7,9 @@ class waterbillview extends React.Component {
     value:'',
     ResidentID:'',
     month:'',
-    billType:''
+    billType:'',
+    //searchedData:{},
+    //showpopup:false,
   };
 
   handleChange = (event) => {
@@ -23,12 +26,18 @@ class waterbillview extends React.Component {
     const month=this.state.month;
     const billType= this.state.billType;
     console.log(ResidentID,month,billType);
-
+    //axios.post("utilitybill/getUtilityBill",data).then((res)=>{
+      //const bill = res.data.bill;
+      //this.state({[showpopup]:true})
+    //})
   }
 render() {
     return (
       <form>
-        
+        {/*{this.state.showpopup &&
+         <div>
+           Popup
+        </div>*/}
         <label className='lablecss'>
           Resident ID                   
         </label> 
@@ -39,7 +48,7 @@ render() {
         <label className='lablecss'>
           Enter Bill Month          
         </label>
-        = <input type="date" name='month' onChange={this.handleChange} className='inputcss' required="required" />
+        = <input type="text" name='month' onChange={this.handleChange} className='inputcss' required="required" />
         <br/><br/>
 
         <label className='lablecss'>
@@ -75,11 +84,25 @@ function AddBill(){
 
   },[])
 
+  const getUtilityBill=async () =>{
+    await axios
+    .get('http://localhost:4000/utilitybill/')
+    .then((res) => {
+      console.log(res)
+      setData(res.data)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+}
+
+  }
+
 
   useEffect(()=>{
     console.log(Object.keys(formError).length)
     console.log(isSubmit)
-    const addData = async ()=>{
+    const getUtilityBill = async ()=>{
       const res = await addBill({ResidentID,EnterBillMonth:month,EnterBillType:billtype})
       console.log(res)
     }

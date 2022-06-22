@@ -142,10 +142,15 @@ function AddBill(){
 
   const submitBILL = async (event) =>{
     event.preventDefault();
-    setFormError(validate({ResidentID,ResidentName:Name,EnterBillAmount:billAmount,EnterBillMonth:month,EnterBillType:billtype,EnterBillID:billID}))
+    setFormError(validate({resident_id:ResidentID,resident_name:Name,bill_amount:billAmount,month,type:billtype,bill_id:billID}))
     setIsSubmit(true);
-   // console.log(typeof(billtype));
-    //const type=this.state.EnterBillType;
+  //console.log(typeof(billtype));
+  //const type=this.state.EnterBillType;
+  const Resident_ID = this.state.resident_id;
+  const Resident_Name = this.state.resident_name;
+    
+   
+    console.log(Resident_ID,Resident_Name);
     
 
     /*console.log(type);*/
@@ -157,7 +162,7 @@ function AddBill(){
     console.log(Object.keys(formError).length)
     console.log(isSubmit)
     const addData = async ()=>{
-      const res = await addBill({ResidentID,ResidentName:Name,EnterBillAmount:billAmount,EnterBillMonth:month,EnterBillType:billtype,EnterBillID:billID})
+      const res = await addBill({resident_id:ResidentID,resident_name:Name,bill_amount:billAmount,month,type:billtype,bill_id:billID})
       console.log(res)
     }
     if(Object.keys(formError).length===0 && isSubmit){
@@ -167,31 +172,31 @@ function AddBill(){
 
   const validate = (values)=>{
     const error = {};
-    if(!values.ResidentID){
-      error.ResidentID = "Resident ID is required!"
+    if(!values.resident_id){
+      error.resident_id = "Resident ID is required!"
     }
-    if(!values.ResidentName){
-      error.ResidentName = "Resident Name is required!"
+    if(!values.resident_name){
+      error.resident_name = "Resident Name is required!"
     }
-    if(values.EnterBillAmount==0){
-      error.EnterBillAmount ="Amount Need to be Greater than Zero"
+    if(values.bill_amount==0){
+      error.bill_amount ="Amount Need to be Greater than Zero"
     }
-    if(!values.EnterBillAmount){
-        error.EnterBillAmount = "Bill Amount is required!"
+    if(!values.bill_amount){
+        error.bill_amount = "Bill Amount is required!"
       }
    
-    if(!values.EnterBillMonth){
-      error.EnterBillMonth = "Bill Month is required!"
+    if(!values.month){
+      error.month = "Bill Month is required!"
     }
 
-    if(!(values.EnterBillType === 'Electricity' || values.EnterBillType === 'Water' || values.EnterBillType === 'electricity' || values.EnterBillType === 'water')){
-    error.EnterBillType = "Bill Type need to be Electricity or Water"
+    if(!(values.type === 'Electricity' || values.type === 'Water' || values.type === 'electricity' || values.type === 'water')){
+    error.type = "Bill Type need to be Electricity or Water"
     }
-    if(!values.EnterBillType){
-      error.EnterBillType = "Bill Type is required!"
+    if(!values.type){
+      error.type = "Bill Type is required!"
     }
-    if(!values.EnterBillID){
-      error.EnterBillID = "Bill Type is required!"
+    if(!values.bill_id){
+      error.bill_id = "Bill Type is required!"
     }
     return error;
 
@@ -209,42 +214,42 @@ return(
                 <Form.Group controlId="formBasicEmail">
                   <Form.Label className="lablecss">Resident ID </Form.Label>
                   = <Form.Control type="text" name="ResidentID " className='inputcss' onChange={(e)=>setResidentID(e.target.value)}/>
-                    <p className="onlyerror">{formError.ResidentID}</p>
+                    <p className="onlyerror">{formError.resident_id}</p>
                 </Form.Group>
                 <br/><br/>
         
                 <Form.Group controlId="formBasicEmail">
                   <Form.Label className="lablecss">Resident Name </Form.Label>
                   = <Form.Control type="text" name="Name" className='inputcss' onChange={(e)=>setName(e.target.value)}/>
-                    <p className="onlyerror">{formError.ResidentName}</p>
+                    <p className="onlyerror">{formError.resident_name}</p>
                 </Form.Group>
                 <br/><br/>
 
                 <Form.Group controlId="formBasicEmail">
                   <Form.Label className="lablecss">Enter Bill Amount</Form.Label>
                   = <Form.Control type="number" name="billAmount" className='inputcss' onChange={(e)=>setbillAmount(e.target.value)}/>
-                  <p className="onlyerror">{formError.EnterBillAmount}</p>
+                  <p className="onlyerror">{formError.bill_amount}</p>
                 </Form.Group>
                 <br/><br/>
 
                 <Form.Group controlId="formBasicEmail">
                   <Form.Label className="lablecss">Enter Bill Month</Form.Label>
-                  = <Form.Control type="date" name="month" className='inputcss' onChange={(e)=>setmonth(e.target.value)}/>
-                  <p className="onlyerror">{formError.EnterBillMonth}</p>
+                  = <Form.Control type="text" name="month" className='inputcss' onChange={(e)=>setmonth(e.target.value)}/>
+                  <p className="onlyerror">{formError.month}</p>
                 </Form.Group>
                 <br/><br/>
 
                 <Form.Group controlId="formBasicEmail">
                   <Form.Label className="lablecss">Enter Bill Type</Form.Label>
                  = <Form.Control type="text" name="billtype" className='inputcss' onChange={(e)=>setbilltype(e.target.value)}/>
-                  <p className="onlyerror">{formError.EnterBillType}</p>
+                  <p className="onlyerror">{formError.type}</p>
                 </Form.Group>
                 <br/><br/>
 
                 <Form.Group controlId="formBasicEmail">
                   <Form.Label className="lablecss">Enter Bill ID</Form.Label>
-                  = <Form.Control type="number" name="billID" className='inputcss' onChange={(e)=>setbillID(e.target.value)}/>
-                    <p className="onlyerror">{formError.EnterBillID}</p>
+                  = <Form.Control type="text" name="billID" className='inputcss' onChange={(e)=>setbillID(e.target.value)}/>
+                    <p className="onlyerror">{formError.bill_id}</p>
                 </Form.Group>
                 <br/><br/>
 

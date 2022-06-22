@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+/*const mongoose = require("mongoose")
 
 const utilityBillSchema = new mongoose.Schema({
     ResidentID :{
@@ -23,8 +23,89 @@ const utilityBillSchema = new mongoose.Schema({
         type:Number,
     },*/
   
-})
+//})
 
-const UtilityBill = mongoose.model("UtilityBills",utilityBillSchema);
+//const UtilityBill = mongoose.model("UtilityBills",utilityBillSchema);
 
-module.exports=UtilityBill;
+//module.exports=UtilityBill;
+
+
+/*const mongoose = require("mongoose");
+var Schema = mongoose.Schema;
+const utilityBillSchema = new mongoose.Schema({
+  resident_id: {
+    type: Schema.Types.ObjectId,
+    ref: "user",
+    required: true,
+  },
+  resident_name: {
+    type: String,
+    required: false,
+  },
+  month: {
+    type: String,
+    required: true,
+  },
+  type: {
+    type: String,
+    required: true,
+  },
+  bill_id: {
+    type: String,
+    required: true,
+  },
+  bill_amount: {
+    type: Number,
+    required: false,
+    default: 0
+  },
+  paid_amount: {
+    type: Number,
+    required: false,
+    default: 0
+  },
+});
+
+const UtilityBill = mongoose.model("utility_bill", utilityBillSchema);
+
+module.exports = UtilityBill;*/
+
+const mongoose = require("mongoose");
+var Schema = mongoose.Schema;
+const utilityBillSchema = new mongoose.Schema({
+  resident_id: {
+    type: Schema.Types.ObjectId,
+    ref: "user",
+    required: true,
+  },
+  resident_name: {
+    type: String,
+    required: false,
+  },
+  month: {
+    type: String,
+    required: true,
+  },
+  type: {
+    type: String,
+    required: true,
+  },
+  bill_id: {
+    type: String,
+    required: true,
+  },
+  bill_amount: {
+    type: Number,
+    required: false,
+    default: 0
+  },
+  paid_amount: {
+    type: Number,
+    required: false,
+    default: 0
+  },
+});
+
+const UtilityBill = mongoose.model("utility_bill", utilityBillSchema);
+
+module.exports = UtilityBill;

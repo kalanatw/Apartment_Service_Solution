@@ -73,7 +73,7 @@ class paid_water extends React.Component {
     event.preventDefault();
     const ResidentID=this.state.ResidentID;
     const amount=this.state.amount;
-    const billType=this.state.value;
+    const billType=this.state.billType;
     console.log(ResidentID,amount,billType);
 
   }
