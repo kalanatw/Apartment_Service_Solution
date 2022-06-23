@@ -74,6 +74,10 @@ const mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 const utilityBillSchema = new mongoose.Schema({
   resident_id: {
+    type: String,
+    required: true,
+  },
+  resident_object_id: {
     type: Schema.Types.ObjectId,
     ref: "user",
     required: true,
