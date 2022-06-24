@@ -5,6 +5,13 @@ const cors = require("cors")
 const {appointmentRouter} = require("./router/appointment.routes")
 const {serviceMemberRouter}=require("./router/servicemember.routes")
 const { utilityBillRouter } = require("./router/utilitybill.routes");
+//const { adminRouter } = require("./router/admin.routes");
+//const { residentRouter } = require("./router/resident.routes");
+//const { securityRouter } = require("./router/security.routes");
+//const { complaintRouter } = require("./router/complaint.routes");
+//const { serviceRouter } = require("./router/service.routes");
+//const { residentappointmentRouter } = require("./router/residentappoinment.routes");
+
 
 const app = express();
 app.use(cors({origin:"*"}))
@@ -24,7 +31,12 @@ app.use(express.json())
 
 app.use("/appointment",appointmentRouter)
 app.use("/servicemember",serviceMemberRouter)
-app.use("/utilitybill",utilityBillRouter)
+app.use("/utilityBill",utilityBillRouter)
+//app.use("/admin",adminRouter)
+//app.use("/resident",residentRouter)
+//app.use("/security",securityRouter)
+//app.use("/complaint",complaintRouter)
+//app.use("/service",serviceRouter)
+//app.use("/residentappointment",residentappointmentRouter)
 
 module.exports = app;
-

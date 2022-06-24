@@ -1,5 +1,65 @@
 import React from 'react';
 import './viewbill_water.css'; 
+import {useState} from 'react';
+import axios from 'axios';
+
+
+const PaidWater=()=>{
+const [ResidentID,setResidentID]= useState("");
+const [PaidAmount,setPaidAmount]= useState(0);
+const [BillType, setBillType]= useState("");
+const [formError,setFormError]= useState({});
+const [isSubmit,setIsSubmit]= useState(false);
+
+  return (
+          <form>
+            
+            <label className='lablecss'>
+              Resident ID                   
+            </label> 
+            = <input type="text" name='ResidentID' onChange={(e)=>{setResidentID(e.target.value);}} className='inputcss' required="required"/>
+            <br/><br/>
+            
+          
+            <label className='lablecss'>
+              Enter Paid Amount           
+            </label>
+            = <input type="number" name='amount' onChange={(e)=>{setPaidAmount(e.target.value);}} className='inputcss' required="required" />
+            <br/><br/>
+    
+            <label className='lablecss'>
+              Enter Bill Type          
+            </label>
+            = <input type="text" name='billType' onChange={(e)=>{setBillType(e.target.value);}} className='inputcss' required="required" />
+            <br/><br/>
+    
+            <button onClick={(e)=>{
+              e.preventDefault();
+              console.log('id ',ResidentID );
+              var body={
+                "resident_id" : ResidentID,
+                "paid_amount" : PaidAmount,
+                "type" : BillType  
+            }
+            try{
+              var url="assapp.herokuapp.com/utilityBill/addPaidAmount"
+              var res =axios.post(url,body);
+            }catch(e){
+              console.log(e);
+            }
+            }} className='submitcss'>Submit</button>
+    
+            
+          </form>
+        );
+}
+
+export default PaidWater;
+
+
+
+
+
 {/*class paid_water extends React.Component {
   constructor(props) {
     super(props);
@@ -51,64 +111,71 @@ import './viewbill_water.css';
   }
 }
 
-export default paid_water;*/}
+// export default paid_water;*/}
+// const [ResidentID,setResidentID]= useState("");
+// const [PaidAmount,setPaidAmount]= useState(0);
+// const [BillType, setBillType]= useState("");
+// const [formError,setFormError]= useState({});
+// const [isSubmit,setIsSubmit]= useState(false);
 
-class paid_water extends React.Component {
-  state={
-    value:'',
-    ResidentID:'',
-    amount:'',
-    billType:''
-  };
+// class paid_water extends React.Component {
+//   state={
+//     value:'',
+//     ResidentID:'',
+//     amount:'',
+//     billType:''
+//   };
 
-  handleChange = (event) => {
-    const name= event.target.name;
-    const value= event.target.value;
 
-    this.setState({[name]:value});
+
+//   handleChange = (event) => {
+//     const name= event.target.name;
+//     const value= event.target.value;
+
+//     this.setState({[name]:value});
     
-  }
+//   }
 
-  handlesubmit=(event) => {
-    event.preventDefault();
-    const ResidentID=this.state.ResidentID;
-    const amount=this.state.amount;
-    const billType=this.state.billType;
-    console.log(ResidentID,amount,billType);
+//   handlesubmit=(event) => {
+//     // event.preventDefault();
+//     // const ResidentID=this.state.ResidentID;
+//     // const amount=this.state.amount;
+//     // const billType=this.state.billType;
+//     // console.log(ResidentID,amount,billType);
 
-  }
-render() {
-    return (
-      <form>
+//   }
+// render() {
+//     return (
+//       <form>
         
-        <label className='lablecss'>
-          Resident ID                   
-        </label> 
-        = <input type="text" name='ResidentID' onChange={this.handleChange} className='inputcss' required="required"/>
-        <br/><br/>
+//         <label className='lablecss'>
+//           Resident ID                   
+//         </label> 
+//         = <input type="text" name='ResidentID' onChange={this.handleChange} className='inputcss' required="required"/>
+//         <br/><br/>
         
       
-        <label className='lablecss'>
-          Enter Paid Amount           
-        </label>
-        = <input type="number" name='amount' onChange={this.handleChange} className='inputcss' required="required" />
-        <br/><br/>
+//         <label className='lablecss'>
+//           Enter Paid Amount           
+//         </label>
+//         = <input type="number" name='amount' onChange={this.handleChange} className='inputcss' required="required" />
+//         <br/><br/>
 
-        <label className='lablecss'>
-          Enter Bill Type          
-        </label>
-        = <input type="text" name='billType' onChange={this.handleChange} className='inputcss' required="required" />
-        <br/><br/>
+//         <label className='lablecss'>
+//           Enter Bill Type          
+//         </label>
+//         = <input type="text" name='billType' onChange={this.handleChange} className='inputcss' required="required" />
+//         <br/><br/>
 
-        <button onClick={this.handlesubmit} className='submitcss'>Submit</button>
+//         <button onClick={this.handlesubmit} className='submitcss'>Submit</button>
 
         
-      </form>
-    );
-  }
-}
+//       </form>
+//     );
+//   }
+// }
 
-export default paid_water;
+// export default paid_water;
 
 /*
 import {React,useState,useEffect} from "react";

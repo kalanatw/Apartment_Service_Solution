@@ -1,71 +1,95 @@
 import axios from 'axios';
 import React from 'react';
-import './viewbill_water.css'; 
+import './viewbill_water.css';
 
 class waterbillview extends React.Component {
-  state={
-    value:'',
-    ResidentID:'',
-    month:'',
-    billType:'',
-    //searchedData:{},
-    //showpopup:false,
+  state = {
+    value: '',
+    ResidentID: '',
+    month: '',
+    billType: '',
+    billInfo: {},
   };
 
   handleChange = (event) => {
-    const name= event.target.name;
-    const value= event.target.value;
+    const name = event.target.name;
+    const value = event.target.value;
 
-    this.setState({[name]:value});
-    
+    this.setState({ [name]: value });
+
   }
 
-  handlesubmit=(event) => {
+  handlesubmit = (event) => {
     event.preventDefault();
-    const ResidentID=this.state.ResidentID;
-    const month=this.state.month;
-    const billType= this.state.billType;
-    console.log(ResidentID,month,billType);
-    //axios.post("utilitybill/getUtilityBill",data).then((res)=>{
-      //const bill = res.data.bill;
-      //this.state({[showpopup]:true})
-    //})
+    const ResidentID = this.state.ResidentID;
+    const month = this.state.month;
+    const billType = this.state.billType;
+    console.log(ResidentID, month, billType);
+    axios.post("utilityBill/viewBill", {
+      resident_id: ResidentID,
+      month: month,
+      type: billType
+    })
+      .then((res) => {
+        const bill = res.data.bill;
+        this.setState({ billInfo: bill });
+
+        //Sample
+        //this.setState({ billInfo: {bill_id: "123456"} });
+      })
   }
-render() {
+
+  showBillDetails() {
+    if (this.state.billInfo && this.state.billInfo.bill_id){
+      return (
+        <>
+          <br /><br />
+          <label className='lablecss'>Bill ID: {this.state.billInfo && this.state.billInfo.bill_id && this.state.billInfo.bill_id}</label>
+          {/*<label className='lablecss'>Bill Amount: {this.state.billInfo && this.state.billInfo.bill_id && this.state.billInfo.bill_id}</label>*/}
+        </>
+      )
+    }
+    else{
+      return <></>
+    }
+  }
+
+  render() {
     return (
-      <form>
-        {/*{this.state.showpopup &&
-         <div>
-           Popup
-        </div>*/}
-        <label className='lablecss'>
-          Resident ID                   
-        </label> 
-        = <input type="text" name='ResidentID' onChange={this.handleChange} className='inputcss' required="required"/>
-        <br/><br/>
-        
-      
-        <label className='lablecss'>
-          Enter Bill Month          
-        </label>
-        = <input type="text" name='month' onChange={this.handleChange} className='inputcss' required="required" />
-        <br/><br/>
+      <>
+        <form>
+          <label className='lablecss'>
+            Resident ID
+          </label>
+          = <input type="text" name='ResidentID' onChange={this.handleChange} className='inputcss' required="required" />
+          <br /><br />
 
-        <label className='lablecss'>
-          Enter Bill Type          
-        </label>
-        = <input type="text" name='billType' onChange={this.handleChange} className='inputcss' required="required" />
-        <br/><br/>
-        
-        <button onClick={this.handlesubmit} className='submitcss'>Submit</button>
 
-        
-      </form>
+          <label className='lablecss'>
+            Enter Bill Month
+          </label>
+          = <input type="text" name='month' onChange={this.handleChange} className='inputcss' required="required" />
+          <br /><br />
+
+          <label className='lablecss'>
+            Enter Bill Type
+          </label>
+          = <input type="text" name='billType' onChange={this.handleChange} className='inputcss' required="required" />
+          <br /><br />
+
+          <button onClick={this.handlesubmit} className='submitcss'>Submit</button>
+
+          {this.showBillDetails()}
+
+        </form>
+
+      </>
     );
   }
 }
 
 export default waterbillview;
+
 
 
 {/*

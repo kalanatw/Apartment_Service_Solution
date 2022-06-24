@@ -138,11 +138,15 @@ const create = async (req, res) => {
     const resident = await Resident.findOne({
       resident_id: req.body.resident_id,
     });
-    console.log(resident)
     if (!resident)
       return res
         .status(200)
         .json({ code: 200, success: false, message: "Invalid resident id" });
+
+    const monthParts = req.body.month.split('-');
+    const temp = monthParts[0] + "-" + monthParts[1];
+    await UtilityBill.deleteMany({month : { $regex: temp + ".*" }, type: req.body.type.toUpperCase()})
+    
     const utilityBill = new UtilityBill({
       ...req.body,
       type: req.body.type.toUpperCase(),
@@ -251,7 +255,7 @@ const deleteUtilityBill = async (req, res) => {
         code: 200,
         success: true,
         data: utilityBill,
-        message: "Utility bill is received",
+        message: "Utility bill is deleted",
       });
     } else {
       res.status(200).json({
@@ -325,11 +329,11 @@ const getUtilityBillsByResidentId = async (req, res) => {
       last_electricity_bill: last_electricity_bill,
       last_water_bill: last_water_bill,
 
-      total_electricity_bill_amount: total_electricity_bill_amount,
-      total_water_bill_amount: total_water_bill_amount,
+      total_electricity_bill_amount: total_electricity_bill_amount.length > 0 ? total_electricity_bill_amount : null ,
+      total_water_bill_amount: total_water_bill_amount.length > 0 ? total_water_bill_amount : null,
 
-      total_electricity_paid_amount: total_electricity_paid_amount,
-      total_water_paid_amount: total_water_paid_amount,
+      total_electricity_paid_amount: total_electricity_paid_amount.length > 0 ? total_electricity_paid_amount : null,
+      total_water_paid_amount: total_water_paid_amount.length > 0 ? total_water_paid_amount : null,
     };
 
     res.status(200).json({
