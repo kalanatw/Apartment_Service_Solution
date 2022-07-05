@@ -57,5 +57,14 @@
     .onlyerror{
       color: red;
     }
+
+    .selectcss{
+      border-radius: 5px;
+      border: 1px solid rgb(0, 0, 0);
+      padding: 5px; 
+      width: 230px;
+      height: 32px;
+  
+  }
   
   

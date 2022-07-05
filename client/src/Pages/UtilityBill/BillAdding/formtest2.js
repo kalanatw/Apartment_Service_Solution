@@ -121,7 +121,7 @@ export default  MyForm();*/
 
 
 
-import {React,useState,useEffect} from "react";
+/*import {React,useState,useEffect} from "react";
 import './formtest2.css'; 
 import {Form,Button} from "react-bootstrap";
 //import {Routes, Route, useNavigate} from 'react-router-dom';
@@ -153,7 +153,7 @@ function AddBill(){
     console.log(Resident_ID,Resident_Name);
     
 
-    /*console.log(type);*/
+    
 
    
   }
@@ -164,9 +164,10 @@ function AddBill(){
     const addData = async ()=>{
       const res = await addBill({resident_id:ResidentID,resident_name:Name,bill_amount:billAmount,month,type:billtype,bill_id:billID})
       console.log(res)
+      alert("Successfully Added");
     }
     if(Object.keys(formError).length===0 && isSubmit){
-      addData()
+      addData();
     }
   },[isSubmit,formError])
 
@@ -210,7 +211,7 @@ return(
         <div className='bodycss'>
           <div className='formbody'>
             <form onSubmit={submitBILL}>
-{/*className="mb-3" */}
+
                 <Form.Group controlId="formBasicEmail">
                   <Form.Label className="lablecss">Resident ID </Form.Label>
                   = <Form.Control type="text" name="ResidentID " className='inputcss' onChange={(e)=>setResidentID(e.target.value)}/>
@@ -234,7 +235,7 @@ return(
 
                 <Form.Group controlId="formBasicEmail">
                   <Form.Label className="lablecss">Enter Bill Month</Form.Label>
-                  = <Form.Control type="text" name="month" className='inputcss' onChange={(e)=>setmonth(e.target.value)}/>
+                  = <Form.Control type="text" name="month" className='inputcss' placeholder='yyyy-mm-dd' onChange={(e)=>setmonth(e.target.value)}/>
                   <p className="onlyerror">{formError.month}</p>
                 </Form.Group>
                 <br/><br/>
@@ -247,7 +248,7 @@ return(
                 <br/><br/>
 
                 <Form.Group controlId="formBasicEmail">
-                  <Form.Label className="lablecss">Enter Bill ID</Form.Label>
+                  <Form.Label className="lablecss">Enter Bill A/C Number</Form.Label>
                   = <Form.Control type="text" name="billID" className='inputcss' onChange={(e)=>setbillID(e.target.value)}/>
                     <p className="onlyerror">{formError.bill_id}</p>
                 </Form.Group>
@@ -263,4 +264,120 @@ return(
 );
 }
 
-export default AddBill;
+export default AddBill;*/
+
+
+
+/*
+import axios from 'axios';
+import React from 'react';
+import './formtest2.css'; 
+
+
+class waterbillview extends React.Component {
+  state = {
+    resident_id: '',
+    resident_name: '',
+    bill_amount: '',
+    month: '',
+    type: '',
+    bill_id: '',
+  };
+
+ handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    this.setState({ [name]: value });
+  }
+
+handlesubmit = (event) => {
+    event.preventDefault();
+    axios.post("utilityBill/create", {
+      resident_id: resident_id,
+      resident_name: resident_name,
+      bill_amount: bill_amount,
+      month: month,
+      type: type,
+      bill_id: bill_id,
+    })
+      .then((res) => {
+        if (res.data.success) {
+          console.log(res.data.data)
+          this.setState({ resident_id : '',resident_name: '',bill_amount: '', month : '', type : '',bill_id: ''});
+        } else {
+          alert(res.data.message)
+        }
+      })
+      .catch((error) => {
+       window.location = "/";
+      });
+  }
+
+render() {
+return(
+<main>
+      <div className ="inline">
+        <h2>Add Bill Amount</h2><br/>
+        <div className='bodycss'>
+          <div className='formbody'>
+            <form>
+
+              <label className='lablecss'>
+                Resident ID
+              </label>
+              = <input type="text" name='resident_id'value={this.state.resident_id} onChange={this.handleChange} className='inputcss'/>
+              <br /><br />
+        
+             <label className='lablecss'>
+                Resident Name
+              </label>
+              = <input type="text" name='resident_name'value={this.state.resident_name} onChange={this.handleChange} className='inputcss'/>
+              <br /><br />
+
+              <label className='lablecss'>
+              Enter Bill Amount
+              </label>
+              = <input type="number" name='bill_amount'value={this.state.bill_amount} onChange={this.handleChange} className='inputcss'/>
+              <br /><br />
+
+              <label className='lablecss'>
+              Enter Bill Month
+              </label>
+              = <input type="date" name='month'value={this.state.month} onChange={this.handleChange} className='inputcss'/>
+              <br /><br />
+
+              <label className='lablecss'>
+                Enter Bill Type
+              </label>
+              = <select
+                  className="selectcss"
+                  id="type"
+                  name="type"
+                  placeholder="Select type"
+                  value={this.state.type}
+                  onChange={this.handleChange}
+                >
+                  <option value="" selected>--Select Type--</option>
+                  <option value="ELECTRICITY">Electricity</option>
+                  <option value="WATER">Water</option>
+                </select>
+                <br /><br />
+              
+              <label className='lablecss'>
+              Enter Bill A/C Number
+              </label>
+              = <input type="text" name='bill_id'value={this.state.bill_id} onChange={this.handleChange} className='inputcss'/>
+              <br /><br />
+
+              <button onClick={this.handlesubmit} className='submitcss'>Submit</button>
+              
+            </form>
+          </div>
+        </div>
+      </div>
+</main>
+);
+}
+}
+
+export default waterbillview;*/

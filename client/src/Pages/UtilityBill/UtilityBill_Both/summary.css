@@ -1,0 +1,28 @@
+
+
+.summarycss{
+    margin-left: 150px;
+    margin-top: 50px;
+    
+    
+}
+
+.summarytable{
+    border: 2px solid forestgreen;
+    width: 800px;
+    text-align: center;
+    
+}
+
+th{
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
+
+td{
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    
+}
+
+

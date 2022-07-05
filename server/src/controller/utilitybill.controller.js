@@ -126,7 +126,6 @@ const addPaidAmountValidation = (data) => {
 };
 
 const create = async (req, res) => {
-  try {
     const { error } = createAndUpdateValidation(req.body);
     if (error)
       return res.status(200).json({
@@ -134,7 +133,7 @@ const create = async (req, res) => {
         success: false,
         message: error.details[0].message,
       });
-
+    try {
     const resident = await Resident.findOne({
       resident_id: req.body.resident_id,
     });
@@ -156,7 +155,7 @@ const create = async (req, res) => {
     const savedUtilityBill = await utilityBill.save();
     return res
       .status(200)
-      .json({ code: 200, success: true, data: savedUtilityBill });
+      .json({ code: 200, success: true, data: savedUtilityBill, message: "Successfully Added" });
   } catch (error) {
     console.log(error);
     res
@@ -235,7 +234,7 @@ const update = async (req, res) => {
       code: 200,
       success: true,
       data: updatedUtilityBill,
-      message: "Complaint Updated Successfully!",
+      message: "Bill Updated Successfully!",
     });
   } catch (error) {
     console.log(error);

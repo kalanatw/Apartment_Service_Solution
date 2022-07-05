@@ -3,9 +3,13 @@ import './App.css';
 import AddAppoinment from './Pages/Appoinment/AddAppoinment';
 import TopBar from './components/topbar/topbar';
 import Sidebar from './components/sidebar/sidebar';
-import BillAdding from './Pages/UtilityBill/BillAdding/formtest2'
-import WaterBill from './Pages/UtilityBill/UtilityBill_Both/fullwater'
+//import BillAdding from './Pages/UtilityBill/BillAdding/formtest2'
+import BillAdding from './Pages/UtilityBill/BillAdding/form2';
+import WaterBill from './Pages/UtilityBill/UtilityBill_Both/fullwater';
+//import HistoryBill from './Pages/UtilityBill/UtilityBill_Both/summary'
 import { Route, Routes, BrowserRouter } from "react-router-dom";
+import Summary from './Pages/UtilityBill/UtilityBill_Both/summary';
+import SummaryByResident from './Pages/UtilityBill/UtilityBill_Both/summarybyResident';
 
 class App extends Component {
   render () {
@@ -34,10 +38,30 @@ class App extends Component {
         />
 
 
+      {/*<Route
+          path="/BillAdding"
+          element={<BillAdding></BillAdding>}
+  />*/}
+
       <Route
           path="/BillAdding"
           element={<BillAdding></BillAdding>}
         />
+
+      <Route
+          path="/Summary"
+          element={<Summary></Summary>}
+        />
+
+        <Route
+          path="/SummaryByResident"
+          element={<SummaryByResident></SummaryByResident>}
+        />
+
+      {/*<Route
+          path="/HistoryBill"
+          element={<HistoryBill></HistoryBill>}
+      />*/}
       </Routes>
           </BrowserRouter>
          
