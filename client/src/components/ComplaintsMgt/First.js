@@ -1,8 +1,8 @@
 import { React, useState, useEffect } from "react";
-import { Form, Button } from "react-bootstrap";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Table.css";
 import axios from "axios";
+import PendingBtn from "./PendingBtn";
 
 const BUTTON_STATUS = {
   EDIT: 0,
@@ -10,16 +10,31 @@ const BUTTON_STATUS = {
 };
 
 function ComplaintsTable() {
-  const [data, setData] = useState([]);
+  const [post, setPosts] = useState([]);
   const [buttonStatus, setButtonStatus] = useState(BUTTON_STATUS.EDIT);
   const [editingTab, setEditingTab] = useState(null);
   const [reply, setReply] = useState("");
   const [status, setStatus] = useState("");
+  const [searchInput, setSearchInput] = useState("");
+  const [originalPosts, setOriginalPosts] = useState([]);
 
   useEffect(() => {
     console.log("called");
     getComplaintsDetails();
   }, []);
+
+  useEffect(() => {
+    if (searchInput.length === 0) {
+      setPosts(originalPosts);
+    } else {
+      const temp = post;
+      const filteredData = temp.filter((item) =>
+        item.resident_id.includes(searchInput)
+      );
+
+      setPosts(filteredData);
+    }
+  }, [searchInput]);
 
   const editTheRow = (details) => {
     // Call the api
@@ -41,17 +56,84 @@ function ComplaintsTable() {
       //.get("http://localhost:8000/complaints")
       .get("/complaint")
       .then((res) => {
+        console.log("res.data.data");
+
         console.log(res.data.data);
-        setData(res.data.data);
+        setPosts(res.data.data);
+        setOriginalPosts(res.data.data);
+        console.log("data");
+        console.log(post);
+        console.log("data");
       })
       .catch((err) => {
         console.log(err);
       });
   };
+
+  const filterItem = (curcat) => {
+    let temoProduct = post.slice().filter((newVal) => {
+      return newVal.Status === curcat;
+    });
+    setPosts(temoProduct);
+  };
+
+  const filterCategory = (curcat) => {
+    let temoProduct = post.slice().filter((newVal) => {
+      return newVal.category === curcat;
+    });
+    setPosts(temoProduct);
+  };
+
+  const filterAll = (curcat) => {
+    getComplaintsDetails();
+  };
+
   return (
     <>
+      <div className="aa">
+        <Link to="#" onClick={() => filterAll()}>
+          <PendingBtn name="All" />
+        </Link>
+
+        <Link to="#" onClick={() => filterItem("Completed")}>
+          <PendingBtn name="Completed" />
+        </Link>
+        <Link to="#" onClick={() => filterItem("Pending")}>
+          <PendingBtn name="Pending" />
+        </Link>
+
+        <Link to="#" onClick={() => filterCategory("Air Conditioner")}>
+          <PendingBtn name="A/C" />
+        </Link>
+
+        <Link to="#" onClick={() => filterCategory("Electricity")}>
+          <PendingBtn name="Electricity" />
+        </Link>
+
+        <Link to="#" onClick={() => filterCategory("Elevator")}>
+          <PendingBtn name="Elevator" />
+        </Link>
+
+        <Link to="#" onClick={() => filterCategory("Plumber")}>
+          <PendingBtn name="Plumber" />
+        </Link>
+
+        <Link to="#" onClick={() => filterItem("Waste MAnagement Issues")}>
+          <PendingBtn name="Waste Mgt" />
+        </Link>
+
+        <Link to="#" onClick={() => filterCategory("Other")}>
+          <PendingBtn name="Other" />
+        </Link>
+      </div>
+
       <div id="head">Complaints Management</div>
+
       <div className="app-container">
+       Enter Resident ID :  <input
+          placeholder="Resident ID" 
+          onChange={(event) => setSearchInput(event?.target?.value)}
+        />
         <table id="complaints">
           <thead>
             <th>Complaint ID</th>
@@ -64,8 +146,8 @@ function ComplaintsTable() {
             <th>Action Button</th>
           </thead>
           <tbody>
-            {data.length > 0 ? (
-              data.map((item, index) => {
+            {post.length > 0 ? (
+              post.map((item, index) => {
                 return (
                   <>
                     <tr>

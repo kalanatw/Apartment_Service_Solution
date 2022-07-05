@@ -9,7 +9,8 @@ table {
   border-collapse: collapse;
   width: 100%;
   border: 2px;
-  margin-left: 20px;
+  margin-left: 10px;
+  margin-top: 00px;
 }
 
 #head {
@@ -21,12 +22,12 @@ table {
   width: 253px;
   height: 42px;
   left: 285px;
-  top: 10px;
+  top: 20px;
 
   font-family: "Scada";
   font-style: italic;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 20px;
   line-height: 27px;
   letter-spacing: -0.333333px;
 }
