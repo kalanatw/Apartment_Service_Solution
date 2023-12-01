@@ -1,51 +1,63 @@
+/* Adjustments for responsive layout */
 .app-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 1rem;
-  }
-  
-  table1 {
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  thh,
-  tdd {
-    border: 1px solid #ffffff;
-    text-align: left;
-    padding: 8px;
-    font-size: 32px;
-  }
-  
-  th {
-    background-color: rgb(117, 201, 250);
-  }
-  
-  td {
-    background-color: rgb(205, 235, 253);
-  }
-  
-  /* form {
-    display: flex;
-    gap: 5px;
-  }
-  
-  form td:last-child {
-    display: flex;
-    justify-content: space-evenly;
-  }
-  
-  form * {
-    font-size: 28px;
-  } */
-  .Heding1{
+  overflow-x: auto;
+  margin-left: 30%;
+}
 
-    margin-left: 30%;
+.table1 {
+  border-collapse: collapse;
+  width: 100%;
+}
 
-    font-size: 1rem;
+.thh,
+.tdd {
+  border: 1px solid #ffffff;
+  text-align: left;
+  padding: 8px;
+  font-size: 1rem; /* Adjust font size for smaller screens */
+}
 
-    width: 400px;
-    overflow: hidden;
-    clear: both;
+th {
+  background-color: rgb(117, 201, 250);
+}
+
+td {
+  background-color: rgb(205, 235, 253);
+}
+
+/* Responsive styles using media queries */
+@media (max-width: 768px) {
+  .thh,
+  .tdd {
+    font-size: 14px;
   }
+
+  .app-container {
+    margin-left: 0;
+  }
+
+  .Heding1 {
+    text-align: center;
+  }
+}
+
+/* Styles for the "Add Appointment" button */
+.Heding1 {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.add-appointment-button {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.add-appointment-button:hover {
+  background-color: #2980b9;
+}
